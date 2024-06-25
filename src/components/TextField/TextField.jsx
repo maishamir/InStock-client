@@ -1,11 +1,11 @@
 import React from 'react';
 import './TextField.scss'
 
-function TextField(props) {
+function TextField(name, placeholder) {
     return (
         <form className='form-group'>
-            <label htmlFor="textField"> Item Name</label>
-    <input type="text" name="textField" id="textField" placeholder='Item Name' className='text-field' />
+            <label htmlFor="textField"> {name}</label>
+    <input type="text" name="textField" id="textField" placeholder={placeholder} className='text-field' />
             
         </form>
     );

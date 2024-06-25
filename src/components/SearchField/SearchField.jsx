@@ -1,12 +1,12 @@
 import React from 'react';
 import './SearchField.scss'
 
-function SearchField(props) {
+function SearchField(placeholder) {
     return (
         
              <form className='form-group'>
             <label htmlFor="searchField"> </label>
-            <input type="text" name="searchField" id="searchField" placeholder='Search...' className='search-field' />
+            <input type="text" name="searchField" id="searchField" placeholder= {placeholder} className='search-field' />
             
         </form>
         

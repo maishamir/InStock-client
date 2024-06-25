@@ -1,13 +1,13 @@
 import React from 'react';
 import './Dropdown.scss'
 
-function Dropdown(props) {
+function Dropdown(name, placeholder) {
     return (
   
   
              <form className='form-group'>
-            <label htmlFor="dropdown"> Warehouse</label>
-            <input type="text" name="dropdown" id="dropdown" placeholder='Please Select' className='dropdown' />
+            <label htmlFor="dropdown"> {name}</label>
+            <input type="text" name="dropdown" id="dropdown" placeholder={placeholder} className='dropdown' />
         </form>
        
     );
