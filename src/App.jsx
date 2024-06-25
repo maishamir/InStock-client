@@ -7,6 +7,7 @@ import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import InventoryList from "./components/InventoryList/InventoryList";
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
