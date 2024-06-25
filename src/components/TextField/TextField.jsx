@@ -1,7 +1,7 @@
 import React from 'react';
 import './TextField.scss'
 
-function TextField(name, placeholder) {
+function TextField({name, placeholder}) {
     return (
         <form className='form-group'>
             <label htmlFor="textField"> {name}</label>

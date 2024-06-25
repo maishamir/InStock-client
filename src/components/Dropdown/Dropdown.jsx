@@ -1,7 +1,7 @@
 import React from 'react';
 import './Dropdown.scss'
 
-function Dropdown(name, placeholder) {
+function Dropdown({name, placeholder}) {
     return (
   
   

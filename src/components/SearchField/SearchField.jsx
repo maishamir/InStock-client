@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchField.scss'
 
-function SearchField(placeholder) {
+function SearchField({placeholder}) {
     return (
         
              <form className='form-group'>
