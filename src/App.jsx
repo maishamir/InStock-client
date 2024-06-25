@@ -1,17 +1,20 @@
-<<<<<<< HEAD
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-=======
->>>>>>> 69bf1a72155a70e0526d3a35b611bd8c4dce4cb0
 import Header from "./components/Header/Header";
+import WarehouseList from "./components/WarehouseList/WarehouseList";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
+import InventoryList from "./components/InventoryList/InventoryList";
+import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
+import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
 
 function App() {
   return (
     <>
-<<<<<<< HEAD
       <BrowserRouter>
         <Header />
         <Routes>
-          {/* <Route path="/" element={<WarehouseList />} />
+          <Route path="/" element={<WarehouseList />} />
           <Route
             path="/warehouse/:warehouseId"
             element={<WarehouseDetails />}
@@ -30,13 +33,10 @@ function App() {
             path="/inventory/:inventoryItemId/edit"
             element={<InventoryItemDetails />}
           />
-          <Route path="/inventory/new" element={<AddWarehouse />} /> */}
+          <Route path="/inventory/new" element={<AddInventoryItem />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
-=======
-      <Header />
->>>>>>> 69bf1a72155a70e0526d3a35b611bd8c4dce4cb0
     </>
   );
 }
