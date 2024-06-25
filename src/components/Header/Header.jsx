@@ -6,7 +6,7 @@ function Header() {
   return (
     <header className="header">
       <div className="header__container">
-        <Link to={"/"}>
+        <Link className="header__logo-link" to={"/"}>
           <img src={logo} alt="instock logo" className="header__logo-icon" />
         </Link>
         <nav className="header__nav">

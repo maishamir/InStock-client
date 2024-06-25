@@ -1,0 +1,14 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.page-title {
+  height: 5.75rem;
+  display: flex;
+
+  &__edit-button {
+    background-color: $instock-indigo;
+    height: auto;
+    width: auto;
+    padding: 3px;
+  }
+}
