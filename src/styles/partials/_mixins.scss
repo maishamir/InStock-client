@@ -1,0 +1,158 @@
+@use './variables' as *;
+@use './typography' as *;
+
+// responsive design mixins //
+
+@mixin tablet {
+    @media screen and (min-width: $min-breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: $min-breakpoint-desktop) {
+        @content;
+    }
+}
+
+// type kit mixins //
+
+// page header //
+
+@mixin text-header {
+    font-family: 'Titillium Web';
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+    color: $instock-black;
+
+    @include tablet {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
+    @include desktop {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+}
+
+// subheader //
+
+@mixin text-subheader {
+    font-family: 'Titillium Web';
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    color: $instock-black;
+
+    @include tablet {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    @include desktop {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+}
+
+// labels, links, & buttons //
+
+@mixin text-label {
+    font-family: 'Titillium Web';
+    font-size: .8125rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    color: $instock-black;
+
+    @include tablet {
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+
+    @include desktop {
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+}
+
+// table header //
+
+@mixin text-tableHeader {
+    font-family: 'Titillium Web';
+    font-size: .6875rem;
+    line-height: 1rem;
+    font-weight: 600;
+    color: $slate;
+
+    @include tablet {
+        font-size: .75rem;
+        line-height: 1.125rem;
+    }
+
+    @include desktop {
+        font-size: .75rem;
+        line-height: 1.125rem;
+    }
+}
+
+// body large copy //
+
+@mixin text-bodyLarge {
+    font-family: 'Titillium Web';
+    font-size: .9375rem;
+    line-height: 1.625rem;
+    font-weight: 400;
+    color: $instock-black;
+
+    @include tablet {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+
+    @include desktop {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+}
+
+// body medium copy //
+
+@mixin text-bodyMedium {
+    font-family: 'Titillium Web';
+    font-size: .8125rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    color: $instock-black;
+
+    @include tablet {
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+
+    @include desktop {
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+}
+
+// body small copy //
+
+@mixin text-bodySmall {
+    font-family: 'Titillium Web';
+    font-size: .6875rem;
+    line-height: 1rem;
+    font-weight: 400;
+    color: $instock-black;
+
+    @include tablet {
+        font-size: .75rem;
+        line-height: 1.125rem;
+    }
+
+    @include desktop {
+        font-size: .75rem;
+        line-height: 1.125rem;
+    }
+}
