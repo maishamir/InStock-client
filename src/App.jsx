@@ -1,5 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+import TextField from "./components/TextField/TextField";
+import SearchField from "./components/SearchField/SearchField";
+import Dropdown from "./components/Dropdown/Dropdown";
 import WarehouseList from "./pages/WarehouseList/WarehouseList";
 import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
@@ -14,6 +17,9 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
+        <TextField/>
+        <Dropdown/>
+        <SearchField/>
         <Routes>
           <Route path="/" element={<WarehouseList />} />
           <Route
