@@ -1,0 +1,18 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
+
+
+.delete-button{
+    background-color: $red;
+    display: flex;
+    align-items: center;
+    color: $white;
+    @include pributtons
+}
+
+.delete-button:hover {
+    background-color: $graphite;
+    
+    @include pributtons
+}

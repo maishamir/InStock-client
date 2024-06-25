@@ -157,7 +157,7 @@
     }
 }
 
-// form field //
+// form fields and buttons //
 
 @mixin formFields {
    border-radius: 1.25rem;
@@ -175,3 +175,41 @@
         height: 2.375rem;
     }
 }
+
+@mixin pributtons {
+    border-radius: 1.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 2.25rem;
+    border-style: none;
+ 
+ 
+     @include tablet {
+         height: 2.375rem;
+ 
+     }
+ 
+     @include desktop {
+         height: 2.375rem;
+     }
+ }
+
+ @mixin secbuttons {
+    border-radius: 1.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 2.25rem;
+
+ 
+ 
+     @include tablet {
+         height: 2.375rem;
+ 
+     }
+ 
+     @include desktop {
+         height: 2.375rem;
+     }
+ }
+
+
