@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import './InventoryForm.scss';
+import './AddNewInventoryItem.scss';
 
 const AddNewItemForm = ({ onAddItem }) => {
     const [formData, setFormData] = useState({
@@ -66,3 +66,5 @@ const AddNewItemForm = ({ onAddItem }) => {
         </form>
     )
 }
+
+export default AddNewItemForm;

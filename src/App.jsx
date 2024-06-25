@@ -6,7 +6,7 @@ import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 import InventoryList from "./pages/InventoryList/InventoryList";
 import InventoryItemDetails from "./pages/InventoryItemDetails/InventoryItemDetails";
-import AddInventoryItem from "./pages/AddInventoryItem/AddInventoryItem";
+import AddNewItemForm from "./pages/AddNewInventoryItem/AddNewInventoryItem";
 import Footer from "./components/Footer/Footer";
 import "./App.scss";
 
@@ -35,7 +35,7 @@ function App() {
             path="/inventory/:inventoryItemId/edit"
             element={<InventoryItemDetails />}
           />
-          <Route path="/inventory/new" element={<AddInventoryItem />} />
+          <Route path="/inventory/new" element={<AddNewItemForm />} />
         </Routes>
         <Footer />
       </BrowserRouter>
