@@ -4,20 +4,24 @@
 @use "./styles/partials/globals" as *;
 
 * {
-    box-sizing: border-box;
-    margin: 0rem;
-    padding: 0rem;
+  box-sizing: border-box;
+  margin: 0rem;
+  padding: 0rem;
 }
 
-html, body {
-    padding: 0rem;
-    margin: 0rem;
+html,
+body {
+  padding: 0rem;
+  margin: 0rem;
 }
 
-h1, h2, h3, p {
-    margin: 0rem;
+h1,
+h2,
+h3,
+p {
+  margin: 0rem;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
