@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import WarehouseList from "./components/WarehouseList/WarehouseList";
-import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
-import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
-import InventoryList from "./components/InventoryList/InventoryList";
-import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
-import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
+import WarehouseList from "./pages/WarehouseList/WarehouseList";
+import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
+import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
+import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
+import InventoryList from "./pages/InventoryList/InventoryList";
+import InventoryItemDetails from "./pages/InventoryItemDetails/InventoryItemDetails";
+import AddInventoryItem from "./pages/AddInventoryItem/AddInventoryItem";
 import Footer from "./components/Footer/Footer";
 
 function App() {
