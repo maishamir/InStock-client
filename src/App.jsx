@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+
 function App() {
   return (
     <>
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<WarehouseList />} />
+          {/* <Route path="/" element={<WarehouseList />} />
           <Route
             path="/warehouse/:warehouseId"
             element={<WarehouseDetails />}
@@ -24,9 +26,9 @@ function App() {
             path="/inventory/:inventoryItemId/edit"
             element={<InventoryItemDetails />}
           />
-          <Route path="/inventory/new" element={<AddWarehouse />} />
+          <Route path="/inventory/new" element={<AddWarehouse />} /> */}
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </>
   );
