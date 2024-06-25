@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import './AddNewInventoryItem.scss';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const AddNewItemForm = ({ onAddItem }) => {
     const [formData, setFormData] = useState({
@@ -61,10 +63,16 @@ const AddNewItemForm = ({ onAddItem }) => {
     };
 
     return (
-        <form className="addItemForm" onSubmit={handleSubmit}>
-            <h2 className="addItemForm__title">Add New Inventory Item</h2>
+        <>
+         <Header />
+         <main>
+         <form className="add-item-form" onSubmit={handleSubmit}>
+            <h2 className="add-item-form__title">Add New Inventory Item</h2>
         </form>
-    )
+         </main>
+         <Footer />
+        </>
+    );
 }
 
 export default AddNewItemForm;
