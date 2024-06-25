@@ -28,6 +28,12 @@
       align-items: center;
       padding: 1rem;
     }
+
+    @include desktop {
+      max-width: $max-width;
+      margin: auto;
+      padding: 1rem 10rem;
+    }
   }
 
   &__nav {
@@ -61,6 +67,15 @@
     text-decoration: none;
     padding: 0.5rem;
     display: block;
+
+    @include tablet {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  &__nav-link:hover {
+    text-decoration: underline;
+    color: $white;
   }
 }
 
