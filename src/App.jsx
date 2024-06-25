@@ -8,6 +8,7 @@ import InventoryList from "./pages/InventoryList/InventoryList";
 import InventoryItemDetails from "./pages/InventoryItemDetails/InventoryItemDetails";
 import AddInventoryItem from "./pages/AddInventoryItem/AddInventoryItem";
 import Footer from "./components/Footer/Footer";
+import "./App.scss";
 
 function App() {
   return (
