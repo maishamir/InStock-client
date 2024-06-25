@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+=======
+>>>>>>> 69bf1a72155a70e0526d3a35b611bd8c4dce4cb0
 import Header from "./components/Header/Header";
 
 function App() {
   return (
     <>
+<<<<<<< HEAD
       <BrowserRouter>
         <Header />
         <Routes>
@@ -30,6 +34,9 @@ function App() {
         </Routes>
         {/* <Footer /> */}
       </BrowserRouter>
+=======
+      <Header />
+>>>>>>> 69bf1a72155a70e0526d3a35b611bd8c4dce4cb0
     </>
   );
 }
