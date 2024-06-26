@@ -39,9 +39,6 @@ function InventoryItemDetails() {
     quantity,
   } = item;
 
-  console.log(item);
-  console.log(warehouse_name);
-
   return (
     <main className="inventory-item">
       <PageTitle
