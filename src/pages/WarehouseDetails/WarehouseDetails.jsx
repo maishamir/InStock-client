@@ -14,9 +14,9 @@ function WarehouseDetails({
       <PageTitle
         title="Seattle"
         s
-        showBack={false}
-        showSearchAdd={true}
-        showEdit={false}
+        showBack={true}
+        showSearchAdd={false}
+        showEdit={true}
       />
       <article className="warehouse-details__card">
         <div className="warehouse-details__address">
