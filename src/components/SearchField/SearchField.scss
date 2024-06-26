@@ -1,22 +1,18 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/typography' as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
 
-label{
-    @include text-label;
+label {
+  @include text-label;
 }
 
-.search-field{
-    background: url("/src/assets/images/icons/search-24px.svg") no-repeat right center;
+.search-field {
+  background: url("/src/assets/images/icons/search-24px.svg") no-repeat right
+    center;
 
-
-    @include formFields;
+  @include formFields;
 }
 
-.search-field.active{
-
-    border-color: $instock-indigo;
-
-
+.search-field.active {
+  border-color: $instock-indigo;
 }
-
