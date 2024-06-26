@@ -101,6 +101,7 @@ const AddNewItemForm = ({ onAddItem }) => {
             <main>
                 <form className="add-item-form" onSubmit={handleSubmit}>
                     <PageTitle className="add-item-form__title" title="Add New Inventory Item"/>
+                    <section className="add-item-form__container">
                     <div className="add-item-form__section">
                         <h3 className="add-item-form__section-title">Item Details</h3>
                         <div className="add-item-form__group">
@@ -204,6 +205,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                         <button type="button" className="add-item-form__button add-item-form__button--cancel">Cancel</button>
                         <button type="submit" className="add-item-form__button add-item-form__button--submit">+ Add Item</button>
                     </div>
+                    </section>
                 </form>
             </main>
             <Footer />
