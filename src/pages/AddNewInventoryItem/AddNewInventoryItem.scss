@@ -1,3 +1,31 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
 .add-item-form {
     @include page-formatting;
+
+    &__section {
+        margin-bottom: 1rem;
+
+    }
+
+    &__group {
+        margin-bottom: 1rem;
+    }
+
+    &__label {
+        margin-bottom: .5rem;
+    }
+
+    &__input,
+    &__textarea,
+    &__select {
+        width: 90%;
+        padding: 0.5rem;
+        @include formFields;
+        border: 1px solid $light-grey;
+        &--error {
+            border: $red;
+        }
+    }
 }

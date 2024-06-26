@@ -3,6 +3,7 @@ import axios from 'axios';
 import './AddNewInventoryItem.scss';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 const AddNewItemForm = ({ onAddItem }) => {
     const [formData, setFormData] = useState({
@@ -99,7 +100,7 @@ const AddNewItemForm = ({ onAddItem }) => {
             <Header />
             <main>
                 <form className="add-item-form" onSubmit={handleSubmit}>
-                    <h2 className="add-item-form__title">Add New Inventory Item</h2>
+                    <PageTitle className="add-item-form__title" title="Add New Inventory Item"/>
                     <div className="add-item-form__section">
                         <h3 className="add-item-form__section-title">Item Details</h3>
                         <div className="add-item-form__group">
@@ -154,7 +155,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                                         checked={formData.status === 'In Stock'}
                                         onChange={handleChange}
                                     />
-                                    In Stock
+                                    In stock
                                 </label>
                                 <label className="add-item-form__radio-label" htmlFor="radio">
                                     <input 
@@ -164,7 +165,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                                         checked={formData.status === 'Out of Stock'}
                                         onChange={handleChange}
                                     />
-                                    Out of Stock
+                                    Out of stock
                                 </label>
                             </div>
                             {errors.status && <span className="add-item-form__error-message">{errors.status}</span>}
