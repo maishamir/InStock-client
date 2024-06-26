@@ -1,4 +1,5 @@
 import PageTitle from "../../components/PageTitle/PageTitle";
+import PageTitleWithSearch from "../../components/PageTitleWithSearch/PageTitleWithSearch";
 import "./WarehouseDetails.scss";
 
 function WarehouseDetails({
@@ -11,13 +12,7 @@ function WarehouseDetails({
 }) {
   return (
     <main className="warehouse-details">
-      <PageTitle
-        title="Seattle"
-        s
-        showBack={true}
-        showSearchAdd={false}
-        showEdit={true}
-      />
+      <PageTitle title="Seattle" showEdit={true} />
       <article className="warehouse-details__card">
         <div className="warehouse-details__address">
           <h4>WAREHOUSE ADDRESS:</h4>

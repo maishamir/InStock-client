@@ -27,7 +27,12 @@
     margin: 1.75rem 0;
   }
 
-  &__edit-button {
+  &__search-add {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__add-button {
     background-color: $instock-indigo;
     height: 2.25rem;
     width: 2.25rem;
@@ -46,21 +51,6 @@
       width: auto;
       padding: 0 1rem;
       gap: 0.5rem;
-    }
-  }
-
-  &__edit-icon {
-    width: 1.25rem;
-    height: 1.25rem;
-  }
-
-  &__edit-text {
-    display: none;
-
-    @include tablet {
-      display: revert;
-      @include text-bodyMedium;
-      color: $white;
     }
   }
 }
