@@ -15,7 +15,6 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        <WarehouseDetails />
         <Routes>
           <Route path="/" element={<WarehouseList />} />
           <Route

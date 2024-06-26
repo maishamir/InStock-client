@@ -10,13 +10,37 @@
 
     @include tablet {
       display: flex;
-      padding: 1rem 2rem;
+      padding: 1rem 2rem 1.5rem;
+    }
+
+    @include desktop {
+      padding: 1.5rem 2.5rem;
     }
   }
 
   &__address {
+    margin-bottom: 2.25rem;
+
     @include tablet {
-      width: 214px;
+      width: 13.375rem;
+      margin: 0 2rem 0 0;
+    }
+
+    @include desktop {
+      margin-right: 9.75rem;
+    }
+  }
+
+  &__text {
+    @include text-bodyMedium;
+    margin-top: 0.25rem;
+  }
+
+  &__break {
+    display: none;
+
+    @include tablet {
+      display: revert;
     }
   }
 
@@ -27,6 +51,11 @@
     @include tablet {
       border-left: solid 1px $cloud;
       padding-left: 2.5rem;
+      gap: 1.5rem;
+    }
+
+    @include desktop {
+      gap: 1.75rem;
     }
   }
 
@@ -35,6 +64,12 @@
 
     @include tablet {
       width: 8.875rem;
+    }
+  }
+
+  &__contact-name {
+    @include desktop {
+      width: 13.5625rem;
     }
   }
 }

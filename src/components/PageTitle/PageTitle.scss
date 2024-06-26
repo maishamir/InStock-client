@@ -12,19 +12,28 @@
     padding: 0 2rem;
   }
 
+  @include desktop {
+    padding: 0 2.5rem;
+  }
+
+  &__back-link {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: 0.3rem;
+  }
+
   &__container {
     display: flex;
-    align-items: baseline;
+    align-items: center;
   }
 
   &__back-icon {
     height: 1.5rem;
     width: 1.5rem;
-    margin-right: 0.5rem;
   }
 
   &__header {
-    margin: 1.75rem 0;
+    margin: 1.75rem 0.5rem;
   }
 
   &__edit-button {
