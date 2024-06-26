@@ -104,7 +104,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                     <div className="add-item-form__section">
                         <h3 className="add-item-form__section-title">Item Details</h3>
                         <div className="add-item-form__group">
-                            <label className="add-item-form__label" htmlFor="itemName">Item Name</label>
+                            <label className="add-item-form__label" htmlFor="item_name">Item Name</label>
                             <input 
                                 type="text"
                                 name="item_name"
@@ -185,7 +185,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                             </div>
                         )}
                         <div className="add-item-form__group">
-                            <label className="add-item-form__label" htmlFor="warehouse">Warehouse</label>
+                            <label className="add-item-form__label" htmlFor="warehouse_id">Warehouse</label>
                             <select
                                 name="warehouse"
                                 value={formData.warehouse_id}

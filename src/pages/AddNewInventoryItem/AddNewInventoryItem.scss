@@ -4,28 +4,62 @@
 .add-item-form {
     @include page-formatting;
 
-    &__section {
-        margin-bottom: 1rem;
+    &__title {
+        @include text-header;
+        margin-bottom: 1.5rem;
+    }
 
+    &__section {
+        margin-bottom: 1.5rem;
+
+        &-title{
+            @include text-subheader;
+            margin-bottom: 1rem;
+        }
     }
 
     &__group {
         margin-bottom: 1rem;
+
+        &--radio-group {
+            display: flex;
+            align-items: center;
+
+            &__radio-label {
+                display: flex;
+                align-items: center;
+                margin-right: 1rem;
+            }
+        }
     }
 
     &__label {
+        @include text-label;
+        display: block;
         margin-bottom: .5rem;
     }
 
     &__input,
     &__textarea,
     &__select {
-        width: 90%;
-        padding: 0.5rem;
         @include formFields;
-        border: 1px solid $light-grey;
-        &--error {
-            border: $red;
+        border: .25rem solid $cloud;
+        font-size: .875rem;
+        line-height: 1.375rem;
+        color: $instock-black;
+
+        &: focus {
+            border-color: $instock-indigo;
+            outline: none;
         }
+
+        &--error {
+            border-color: $red;
+        }
+    }
+
+    &__textarea {
+        height: 5rem;
+        resize: none;
     }
 }
