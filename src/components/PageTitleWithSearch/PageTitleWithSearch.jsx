@@ -1,20 +1,18 @@
 import "./PageTitleWithSearch.scss";
 import SearchField from "../SearchField/SearchField.jsx";
 
-function PageTitle({ title, type }) {
+function PageTitleWithSearch({ title, type }) {
   return (
-    <div className="page-title">
-      <div className="page-title__container">
-        <h1 className="page-title__header">{title}</h1>
-      </div>
-      <div className="page-title__search-add">
+    <div className="page-title-search">
+      <h1 className="page-title-search__header">{title}</h1>
+      <div className="page-title-search__search-add">
         <SearchField />
-        <button className="page-title__add-button">
-          <p className="page-title__edit-text">+ Add New {type}</p>
+        <button className="page-title-search__add-button">
+          <p className="page-title-search__add-text">+ Add New {type}</p>
         </button>
       </div>
     </div>
   );
 }
 
-export default PageTitle;
+export default PageTitleWithSearch;

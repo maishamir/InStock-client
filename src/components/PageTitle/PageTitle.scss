@@ -14,13 +14,14 @@
 
   &__container {
     display: flex;
-    align-items: baseline;
+    align-items: center;
   }
 
   &__back-icon {
     height: 1.5rem;
     width: 1.5rem;
     margin-right: 0.5rem;
+    margin-top: 0.3rem;
   }
 
   &__header {
