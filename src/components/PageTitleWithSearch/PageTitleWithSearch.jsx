@@ -1,7 +1,7 @@
 import "./PageTitleWithSearch.scss";
 import SearchField from "../SearchField/SearchField.jsx";
 
-function PageTitle({ title }) {
+function PageTitle({ title, type }) {
   return (
     <div className="page-title">
       <div className="page-title__container">
@@ -10,7 +10,7 @@ function PageTitle({ title }) {
       <div className="page-title__search-add">
         <SearchField />
         <button className="page-title__add-button">
-          <p className="page-title__edit-text">+ Add New Warehouse</p>
+          <p className="page-title__edit-text">+ Add New {type}</p>
         </button>
       </div>
     </div>
