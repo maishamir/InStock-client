@@ -1,33 +1,25 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/typography' as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
 
-label{
-    @include text-label;
+label {
+  @include text-label;
 }
 
-.form-group{
-display: flex;
-flex-direction: column;
-gap: .25rem
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-.text-field{
-
-    @include formFields;
-
+.text-field {
+  @include formFields;
 }
 
-.text-field.active{
-
-    border-color: $instock-indigo;
-
-
+.text-field.active {
+  border-color: $instock-indigo;
 }
 
-.text-field.required{
-
-    border-color: $red;
-
-
+.text-field.required {
+  border-color: $red;
 }
