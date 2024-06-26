@@ -5,11 +5,22 @@ import editIcon from "../../assets/images/icons/edit-white-24px.svg";
 function PageTitle({ title, showEdit }) {
   return (
     <div className="page-title">
-      <img src={arrowIcon} alt="arrow icon" />
-      <h1>{title}</h1>
+      <div className="page-title__container">
+        <img
+          className="page-title__back-icon"
+          src={arrowIcon}
+          alt="back icon"
+        />
+        <h1 className="page-title__header">{title}</h1>
+      </div>
       {showEdit && (
         <div className="page-title__edit-button">
-          <img src={editIcon} alt="edit icon" />
+          <img
+            className="page-title__edit-icon"
+            src={editIcon}
+            alt="edit icon"
+          />
+          <p className="page-title__edit-text">Edit</p>
         </div>
       )}
     </div>

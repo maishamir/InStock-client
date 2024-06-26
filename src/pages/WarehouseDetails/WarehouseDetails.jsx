@@ -4,7 +4,7 @@ import "./WarehouseDetails.scss";
 function WarehouseDetails() {
   return (
     <main className="warehouse-details">
-      <PageTitle title="Change with props" showEdit={true} />
+      <PageTitle title="Shoreline" showEdit={true} />
     </main>
   );
 }
