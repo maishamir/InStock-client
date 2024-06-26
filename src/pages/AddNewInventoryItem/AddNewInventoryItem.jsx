@@ -64,13 +64,13 @@ const AddNewItemForm = ({ onAddItem }) => {
 
     return (
         <>
-         <Header />
-         <main>
-         <form className="add-item-form" onSubmit={handleSubmit}>
-            <h2 className="add-item-form__title">Add New Inventory Item</h2>
-        </form>
-         </main>
-         <Footer />
+            <Header />
+            <main>
+                <form className="add-item-form" onSubmit={handleSubmit}>
+                    <h2 className="add-item-form__title">Add New Inventory Item</h2>
+                </form>
+            </main>
+            <Footer />
         </>
     );
 }
