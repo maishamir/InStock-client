@@ -4,6 +4,36 @@
 .warehouse-details {
   @include page-formatting;
 
+  &__card {
+    padding: 1rem 1.5rem;
+    @include divider-line;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__address {
+    @include tablet {
+      width: 214px;
+    }
+  }
+
+  &__contact-container {
+    display: flex;
+    gap: 1rem;
+
+    @include tablet {
+      border-left: solid 1px $cloud;
+      padding-left: 2.5rem;
+    }
+  }
+
   &__contact {
+    width: 50%;
+
+    @include tablet {
+      width: 8.875rem;
+    }
   }
 }

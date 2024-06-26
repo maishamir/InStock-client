@@ -190,3 +190,7 @@
     margin: 5.75rem 8.125rem 8rem;
   }
 }
+
+@mixin divider-line {
+  border-bottom: 1px solid $cloud;
+}

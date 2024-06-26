@@ -11,9 +11,9 @@ function WarehouseDetails({
 }) {
   return (
     <main className="warehouse-details">
-      <PageTitle title={warehouse_name} showEdit={true} />
+      <PageTitle title="Seattle" showEdit={true} />
       <article className="warehouse-details__card">
-        <div className="warehouse-details__contact">
+        <div className="warehouse-details__address">
           <h4>WAREHOUSE ADDRESS:</h4>
           <p>{address}</p>
         </div>

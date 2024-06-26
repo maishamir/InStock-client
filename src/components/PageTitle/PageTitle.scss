@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 1.5rem;
-  border-bottom: 1px solid $cloud;
+  @include divider-line;
 
   &__container {
     display: flex;
