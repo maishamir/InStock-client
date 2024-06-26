@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { api_URL } from "../../utils/const";
 import "./InventoryItemDetails.scss";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import StatusTag from "../../components/StatusTag/StatusTag";
 
 function InventoryItemDetails() {
   const { inventoryItemId } = useParams();
@@ -39,8 +40,8 @@ function InventoryItemDetails() {
     quantity,
   } = item;
 
-  const inStockClassName = "inventory-item__in-stock";
-  const outOfStockClassName = "inventory-item__out-of-stock";
+  // const inStockClassName = "inventory-item__in-stock";
+  // const outOfStockClassName = "inventory-item__out-of-stock";
 
   return (
     <main className="inventory-item">
@@ -65,13 +66,14 @@ function InventoryItemDetails() {
           <div className="inventory-item__container-top">
             <div className="inventory-item__detail inventory-item__top">
               <h4>STATUS:</h4>
-              <p
+              <StatusTag status={status} extraClass="inventory-item__text" />
+              {/* <p
                 className={
                   status === "In Stock" ? inStockClassName : outOfStockClassName
                 }
               >
                 {status}
-              </p>
+              </p> */}
             </div>
             <div className="inventory-item__detail inventory-item__top">
               <h4>QUANTITY:</h4>
