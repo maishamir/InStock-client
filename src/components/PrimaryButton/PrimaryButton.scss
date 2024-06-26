@@ -1,0 +1,18 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
+
+
+.primary-button{
+    background-color: $instock-indigo;
+    display: flex;
+    align-items: center;
+    color: $white;
+    @include pributtons
+}
+
+.primary-button:hover {
+    background-color: $graphite;
+    
+    @include pributtons
+}
