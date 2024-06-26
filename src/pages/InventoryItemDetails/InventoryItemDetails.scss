@@ -1,0 +1,82 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory-item {
+  @include page-formatting;
+
+  &__card {
+    padding: 1.5rem 2rem 2rem;
+    @include divider-line;
+
+    @include tablet {
+      display: flex;
+      padding: 1rem 2rem 1.5rem;
+    }
+
+    @include desktop {
+      padding: 1.5rem 2.5rem;
+    }
+  }
+
+  &__container-1 {
+    gap: 1rem;
+
+    @include tablet {
+      gap: 1.5rem;
+      width: 18.4375rem;
+      margin-right: 1.5rem;
+    }
+
+    @include desktop {
+      gap: 1.75rem;
+    }
+  }
+
+  &__container-2 {
+    gap: 1rem;
+
+    @include tablet {
+      border-left: solid 1px $cloud;
+      padding-left: 2.5rem;
+      gap: 1.5rem;
+    }
+
+    @include desktop {
+      gap: 1.75rem;
+    }
+  }
+
+  &__container-top {
+    display: flex;
+  }
+
+  &__detail {
+    margin-bottom: 1rem;
+
+    @include tablet {
+      width: 13.375rem;
+      margin: 0 2rem 0 0;
+    }
+
+    @include desktop {
+      margin-right: 9.75rem;
+    }
+  }
+
+  &__top {
+    width: 50%;
+  }
+
+  &__text {
+    @include text-bodyMedium;
+    margin-top: 0.25rem;
+  }
+
+  &__break {
+    display: none;
+
+    @include tablet {
+      display: revert;
+    }
+  }
+}
