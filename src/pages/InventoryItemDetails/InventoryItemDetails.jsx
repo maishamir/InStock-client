@@ -39,6 +39,9 @@ function InventoryItemDetails() {
     quantity,
   } = item;
 
+  const inStockClassName = "inventory-item__in-stock";
+  const outOfStockClassName = "inventory-item__out-of-stock";
+
   return (
     <main className="inventory-item">
       <PageTitle
@@ -62,7 +65,13 @@ function InventoryItemDetails() {
           <div className="inventory-item__container-top">
             <div className="inventory-item__detail inventory-item__top">
               <h4>STATUS:</h4>
-              <p className="inventory-item__text">{status}</p>
+              <p
+                className={
+                  status === "In Stock" ? inStockClassName : outOfStockClassName
+                }
+              >
+                {status}
+              </p>
             </div>
             <div className="inventory-item__detail inventory-item__top">
               <h4>QUANTITY:</h4>
