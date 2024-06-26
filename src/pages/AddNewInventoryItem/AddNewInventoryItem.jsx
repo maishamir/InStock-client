@@ -135,7 +135,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                                 onChange={handleChange}
                                 className={`add-item-form__select ${errors.category ? 'add-item-form__select--error' : ''}`}
                                 >
-                                <option value="">Please select</option>
+                                <option className="add-item-form__select--placeholder" value="">Please select</option>
                                 {categories.map(category => (
                                     <option key={category} value={category.name}>{category.name}</option>
                                 ))}

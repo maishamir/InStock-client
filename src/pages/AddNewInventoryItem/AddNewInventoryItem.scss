@@ -1,9 +1,14 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/globals' as *;
+
+.page-title__container {
+    align-items: baseline;
+}
 
 .add-item-form {
     @include page-formatting;
-
+    
     &__title {
         @include text-header;
         margin-bottom: 1.5rem;
@@ -17,7 +22,7 @@
     &__section {
         margin-bottom: 1.5rem;
 
-        &-title{
+        &-title {
             @include text-subheader;
             margin-bottom: 1rem;
         }
@@ -64,8 +69,9 @@
     }
 
     &__textarea {
-        height: 5rem;
+        height: 7rem;
         resize: none;
+        padding: 0.5rem 1rem;
     }
 
     &__select {
@@ -73,6 +79,11 @@
         background: url(../../assets/images/icons/arrow_drop_down-24px.svg) no-repeat right 1rem center;
         background-color: $white;
         background-size: 1rem;
+        @include text-bodyMedium;
+
+        &--placeholder {
+            color: $slate;
+        }
     }
 
     &__error-message {
@@ -86,30 +97,38 @@
         display: flex;
         justify-content: space-between;
         margin-top: 2rem;
+    }
 
-        &__button {
-            @include secbuttons;
-            @include text-label;
-            cursor: pointer;
+    &__button {
+        @include secbuttons;
+        @include text-label;
+        cursor: pointer;
 
-            &--cancel {
-                background-color: $light-grey;
-                color: $instock-black;
+        &--cancel {
+            background-color: $light-grey;
+            color: $instock-black;
 
-                &:hover {
-                    background-color: $cloud;
-                }
+            &:hover {
+                background-color: $cloud;
             }
+        }
 
-            &--submit {
-                @include pributtons;
-                background-color: $instock-indigo;
-                color: $white;
+        &--submit {
+            @include pributtons;
+            background-color: $instock-indigo;
+            color: $white;
 
-                &:hover {
-                    background-color: darken($instock-indigo, 10%);
-                }
+            &:hover {
+                background-color: darken($instock-indigo, 10%);
             }
         }
     }
+}
+
+// style placeholder text //
+
+input::placeholder,
+textarea::placeholder {
+    @include text-bodyMedium;
+    color: $slate;
 }
