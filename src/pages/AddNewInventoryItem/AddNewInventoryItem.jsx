@@ -22,18 +22,20 @@ const AddNewItemForm = ({ onAddItem }) => {
         const fetchCategories = async () => {
             try {
                 const response = await axios.get('/api/inventories/categories');
-                setCategories(response.data);
+                setCategories(Array.isArray(response.data) ? response.data : []);
             } catch (error) {
                 console.error('Failed to fetch categories.', error);
+                setCategories([]);
             }
         };
 
         const fetchWarehouses = async () => {
             try {
                 const response = await axios.get('/api/warehouses');
-                setWarehouses(response.data);
+                setWarehouses(Array.isArray(response.data) ? response.data : []);
             } catch (error) {
                 console.error('Failed to fetch warehouses.', error);
+                setWarehouses([]);
             }
         };
 
@@ -133,7 +135,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                                 >
                                 <option value="">Please select</option>
                                 {categories.map(category => (
-                                    <option key={category.id} value={category.name}>{category.name}</option>
+                                    <option key={category} value={category.name}>{category.name}</option>
                                 ))}
                             </select>
                             {errors.category && <span className="add-item-form__error-message">{errors.category}</span>}
