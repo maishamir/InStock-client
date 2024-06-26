@@ -3,4 +3,7 @@
 
 .warehouse-details {
   @include page-formatting;
+
+  &__contact {
+  }
 }

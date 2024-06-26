@@ -14,14 +14,14 @@ function PageTitle({ title, showEdit }) {
         <h1 className="page-title__header">{title}</h1>
       </div>
       {showEdit && (
-        <div className="page-title__edit-button">
+        <button className="page-title__edit-button">
           <img
             className="page-title__edit-icon"
             src={editIcon}
             alt="edit icon"
           />
           <p className="page-title__edit-text">Edit</p>
-        </div>
+        </button>
       )}
     </div>
   );
