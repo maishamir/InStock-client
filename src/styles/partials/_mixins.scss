@@ -160,6 +160,7 @@
 // form fields and buttons //
 
 @mixin formFields {
+  border: 1px solid $cloud;
   border-radius: 1.25rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -168,6 +169,7 @@
 
   @include tablet {
     height: 2.375rem;
+    width: 100%;
   }
 
   @include desktop {
@@ -206,11 +208,13 @@
   }
 }
 
+// formatting for main element on each page component (white card that contains title and contents)
+
 @mixin page-formatting {
   position: relative;
   z-index: 3;
   background-color: $white;
-  margin: 8.5rem 1rem 5rem;
+  margin: 8.5rem 1rem 2.5rem;
   border-radius: 0.1875rem;
   box-shadow: 0 0.125rem 0.3125rem 0 rgba(19, 24, 44, 0.1);
 
