@@ -3,7 +3,7 @@ import axios from 'axios';
 import './EditInventoryItem.scss';
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { api_URL } from "../../utils/const";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const EditItemForm = ({ onUpdateItem }) => {
     const { inventoryItemId } = useParams();
@@ -215,7 +215,8 @@ const EditItemForm = ({ onUpdateItem }) => {
                 </section>
                 </section>
                 <div className="edit-item-form__actions">
-                    <button type="button" className="edit-item-form__button edit-item-form__button--cancel">Cancel</button>
+                    <button type="button" className="edit-item-form__button edit-item-form__button--cancel"><Link to={`/inventory/${inventoryItemId}`}>Cancel</Link></button>
+                    
                     <button type="submit" className="edit-item-form__button edit-item-form__button--submit">Save</button>
                 </div>
             </form>
