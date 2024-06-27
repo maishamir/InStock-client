@@ -99,6 +99,7 @@
     &__textarea,
     &__select {
         @include formFields;
+        @include text-bodyMedium;
         border: .0625rem solid $cloud;
         font-size: .875rem;
         line-height: 1.375rem;

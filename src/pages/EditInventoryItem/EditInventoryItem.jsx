@@ -3,8 +3,10 @@ import axios from 'axios';
 import './EditInventoryItem.scss';
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { api_URL } from "../../utils/const";
+import { useParams } from "react-router-dom";
 
-const EditItemForm = ({ itemId, onUpdateItem }) => {
+const EditItemForm = ({ onUpdateItem }) => {
+    const { inventoryItemId } = useParams();
     const [formData, setFormData] = useState({
         warehouse_id: '',
         item_name: '',
@@ -39,7 +41,7 @@ const EditItemForm = ({ itemId, onUpdateItem }) => {
 
         const fetchItemDetails = async () => {
             try {
-                const response = await axios.get(`${api_URL}/api/inventories/${itemId}`);
+                const response = await axios.get(`${api_URL}/api/inventories/${inventoryItemId}`);
                 setFormData(response.data);
             } catch (error) {
                 console.error('Failed to fetch item details.', error);
@@ -50,7 +52,7 @@ const EditItemForm = ({ itemId, onUpdateItem }) => {
         fetchWarehouses();
         fetchItemDetails();
 
-    }, [itemId]);
+    }, [inventoryItemId]);
 
     const validateForm = () => {
         const newErrors = {};
@@ -78,7 +80,7 @@ const EditItemForm = ({ itemId, onUpdateItem }) => {
         }
 
         try {
-            const response = await axios.put(`${api_URL}/api/inventories/${itemId}`, formData);
+            const response = await axios.put(`${api_URL}/api/inventories/${inventoryItemId}`, formData);
             onUpdateItem(response.data);
         } catch (error) {
             console.error('Failed to update inventory item.', error);
@@ -97,7 +99,8 @@ const EditItemForm = ({ itemId, onUpdateItem }) => {
     return (
         <main>
             <form className="edit-item-form" onSubmit={handleSubmit}>
-                <PageTitle className="edit-item-form__title" title="Edit Inventory Item" backLink="/inventory/:inventoryItemId"/>
+                <PageTitle className="edit-item-form__title" title="Edit Inventory Item"
+                editLink={`/inventory/${inventoryItemId}/edit`} backLink={`/inventory/${inventoryItemId}`}/>
                 <section className="edit-item-form__tablet-container">
                 <section className="edit-item-form__container edit-item-form__container--top">
                 <div className="edit-item-form__section">
