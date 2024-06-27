@@ -214,6 +214,8 @@
   }
 }
 
+// formatting for main element on each page component (white card that contains title and contents)
+
 @mixin page-formatting {
   position: relative;
   background-color: $white;
