@@ -4,25 +4,25 @@ import { useParams } from "react-router-dom";
 import { api_URL } from "../../utils/const";
 import "./WarehouseDetails.scss";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import DeleteModal from "../../components/DeleteModal/DeleteModal";
 
 function WarehouseDetails() {
   const { warehouseId } = useParams();
   const [warehouse, setWarehouse] = useState(null);
 
-  useEffect(() => {
-    if (warehouseId) {
-      const fetchWarehouseDetails = async () => {
-        try {
-          const response = await axios.get(
-            `${api_URL}/api/warehouses/${warehouseId}`
-          );
-          setWarehouse(response.data);
-        } catch (error) {
-          console.error("Failure fetching warehouse details", error);
-        }
-      };
-      fetchWarehouseDetails();
+  const fetchWarehouseDetails = async () => {
+    try {
+      const response = await axios.get(
+        `${api_URL}/api/warehouses/${warehouseId}`
+      );
+      setWarehouse(response.data);
+    } catch (error) {
+      console.error("Failure fetching warehouse details", error);
     }
+  };
+
+  useEffect(() => {
+    fetchWarehouseDetails();
   }, [warehouseId]);
 
   if (!warehouse) {
@@ -30,7 +30,7 @@ function WarehouseDetails() {
   }
 
   const {
-    warehouse_id,
+    id,
     warehouse_name,
     address,
     city,
@@ -41,13 +41,15 @@ function WarehouseDetails() {
     contact_email,
   } = warehouse;
 
+  console.log(warehouse);
+
   return (
     <main className="warehouse-details">
       <PageTitle
         title={warehouse_name}
         backLink="/"
         showEdit={true}
-        editLink={`/warehouse/${warehouse_id}`}
+        editLink={`/warehouse/${id}`}
       />
       <article className="warehouse-details__card">
         <div className="warehouse-details__address">
@@ -76,6 +78,14 @@ function WarehouseDetails() {
           </div>
         </div>
       </article>
+      <DeleteModal
+        itemName="soap"
+        itemId="75"
+        itemType="inventory item"
+        route="inventories"
+        typeOfList="inventory list"
+        onDeleteSuccess={fetchWarehouseDetails}
+      />
     </main>
   );
 }

@@ -26,6 +26,7 @@ function DeleteModal({
   onDeleteSuccess,
 }) {
   const [modalIsOpen, setIsOpen] = useState(false);
+  console.log;
 
   function openModal() {
     setIsOpen(true);
@@ -35,19 +36,19 @@ function DeleteModal({
     setIsOpen(false);
   }
 
-  const deleteWarehouse = async () => {
+  const deleteItem = async () => {
     const confirmed = window.confirm(
-      `Are you sure you want to delete warehouse ${itemName}?`
+      `Are you sure you want to delete ${itemType} ${itemName}?`
     );
 
     if (confirmed) {
       try {
         await axios.delete(`${api_URL}/api/${route}/${itemId}`);
-        alert("Warehouse deleted successfully");
+        alert(`Successfully deleted ${itemName} ${itemType}`);
         closeModal();
         onDeleteSuccess();
       } catch (error) {
-        alert("Unable to delete warehouse");
+        alert(`Unable to delete ${itemType}`);
       }
     } else {
       closeModal();
@@ -79,13 +80,13 @@ function DeleteModal({
               Delete {itemName} {itemType}?
             </h1>
             <p className="delete__text">
-              Please confirm that you’d like to delete {itemName} from the
+              Please confirm that you’d like to delete {itemName} from the{" "}
               {typeOfList}. You won’t be able to undo this action.
             </p>
           </div>
           <div className="delete__buttons">
             <SecondaryButton buttonText="Cancel" onClick={closeModal} />
-            <DeleteButton buttonText="Delete" onClick={deleteWarehouse} />
+            <DeleteButton buttonText="Delete" onClick={deleteItem} />
           </div>
         </div>
       </Modal>
