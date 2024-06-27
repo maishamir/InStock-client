@@ -3,6 +3,7 @@ import axios from 'axios';
 import './AddNewInventoryItem.scss';
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { api_URL } from "../../utils/const";
+import DividerLine from "../../components/DividerLine/DividerLine";
 
 const AddNewItemForm = ({ onAddItem }) => {
     const [formData, setFormData] = useState({
@@ -22,6 +23,7 @@ const AddNewItemForm = ({ onAddItem }) => {
         const fetchCategories = async () => {
             try {
                 const response = await axios.get(`${api_URL}/api/inventories/categories`);
+                console.log(response.data);
                 setCategories(Array.isArray(response.data) ? response.data : []);
             } catch (error) {
                 console.error('Failed to fetch categories.', error);
@@ -32,6 +34,7 @@ const AddNewItemForm = ({ onAddItem }) => {
         const fetchWarehouses = async () => {
             try {
                 const response = await axios.get(`${api_URL}/api/warehouses`);
+                console.log(response.data);
                 setWarehouses(Array.isArray(response.data) ? response.data : []);
             } catch (error) {
                 console.error('Failed to fetch warehouses.', error);
@@ -54,7 +57,7 @@ const AddNewItemForm = ({ onAddItem }) => {
         });
 
         if (formData.status === 'In Stock' && !formData.quantity) {
-            newErrors.quantity = 'Quantity is required when status is In Stock.';
+            newErrors.quantity = 'Quantity is required when status is In stock.';
         } else if (formData.quantity && isNaN(formData.quantity)) {
             newErrors.quantity = 'Quantity must be a number.';
         }
@@ -98,7 +101,7 @@ const AddNewItemForm = ({ onAddItem }) => {
         <main>
             <form className="add-item-form" onSubmit={handleSubmit}>
                 <PageTitle className="add-item-form__title" title="Add New Inventory Item"/>
-                <section className="add-item-form__container">
+                <section className="add-item-form__container--top">
                 <div className="add-item-form__section">
                     <h3 className="add-item-form__section-title">Item Details</h3>
                     <div className="add-item-form__group">
@@ -140,12 +143,18 @@ const AddNewItemForm = ({ onAddItem }) => {
                         {errors.category && <span className="add-item-form__error-message">{errors.category}</span>}
                     </div>
                 </div>
+                </section>
+                <DividerLine />
+                <section className="add-item-form__container">
                 <div className="add-item-form__section">
                     <h3 className="add-item-form__section-title">Item Availability</h3>
                     <div className="add-item-form__group">
                         <label className="add-item-form__label" htmlFor="status">Status</label>
                         <div className="add-item-form__radio-group">
-                            <label className="add-item-form__radio-label" htmlFor="radio">
+                            <label 
+                                className={`add-item-form__radio-label ${formData.status === 'In Stock' ? 'add-item-form__radio-label--active' : ''}`}
+                                htmlFor="radio"
+                            >
                                 <input 
                                     type="radio"
                                     name="status"
@@ -156,7 +165,10 @@ const AddNewItemForm = ({ onAddItem }) => {
                                 />
                                 In stock
                             </label>
-                            <label className="add-item-form__radio-label" htmlFor="radio">
+                            <label 
+                                className={`add-item-form__radio-label ${formData.status === 'Out of Stock' ? 'add-item-form__radio-label--active' : ''}`}
+                                htmlFor="radio"
+                            >
                                 <input 
                                     type="radio"
                                     name="status"
