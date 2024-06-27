@@ -160,6 +160,7 @@
 // form fields and buttons //
 
 @mixin formFields {
+  border: 1px solid $cloud;
   border-radius: 1.25rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -168,6 +169,7 @@
 
   @include tablet {
     height: 2.375rem;
+    width: 100%;
   }
 
   @include desktop {

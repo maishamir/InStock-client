@@ -3,5 +3,11 @@
 @use '../../styles/partials/typography' as *;
 
 .divider-line{
-    @include divider-line
+    width: 100%;
+    height: 1px;
+    background-color: $cloud;
+    margin: 20px 0;
+
+   
+
 }
