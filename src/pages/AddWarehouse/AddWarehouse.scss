@@ -1,2 +1,42 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+
+.add-warehouse {
+  @include page-formatting;
+
+  &__card {
+    padding: 1rem 1.5rem;
+    
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 2rem 1.5rem;
+    }
+
+    @include desktop {
+      padding: 1.5rem 2.5rem;
+    }
+  }
+
+  &__container {
+
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+    }
+  }
+
+  &__title {
+    padding-bottom: 1rem;
+    @include text-subheader;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    background-color: $light-grey;
+    padding: 1rem 1.5rem;
+  }
+}
