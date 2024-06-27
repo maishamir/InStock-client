@@ -131,9 +131,9 @@ const AddNewItemForm = ({ onAddItem }) => {
                             onChange={handleChange}
                             className={`add-item-form__select ${errors.category ? 'add-item-form__select--error' : ''}`}
                             >
-                            <option className="add-item-form__select--placeholder" value="">Please select</option>
-                            {categories.map(category => (
-                                <option key={category} value={category.name}>{category.name}</option>
+                            <option className="add-item-form__select--option" value="">Please select</option>
+                            {categories.map((category, index) => (
+                                <option key={index} value={category}>{category}</option>
                             ))}
                         </select>
                         {errors.category && <span className="add-item-form__error-message">{errors.category}</span>}
@@ -200,9 +200,9 @@ const AddNewItemForm = ({ onAddItem }) => {
                             onChange={handleChange}
                             className={`add-item-form__select ${errors.warehouse_id ? 'add-item-form__select--error' : ''}`}
                             >
-                            <option value="">Please select</option>
+                            <option className="add-item-form__select--option" value="">Please select</option>
                             {warehouses.map(warehouse => (
-                                <option key={warehouse.id} value={warehouse.id}>{warehouse.name}</option>
+                                <option key={warehouse.id} value={warehouse.id}>{warehouse.warehouse_name}</option>
                             ))}
                         </select>
                         {errors.warehouse_id && <span className="add-item-form__error-message">{errors.warehouse_id}</span>}
