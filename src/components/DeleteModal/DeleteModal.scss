@@ -2,6 +2,10 @@
 @use "../../styles/partials/mixins" as *;
 
 .delete {
+  &__icon {
+    background-color: $white;
+    border: none;
+  }
   &__modal {
     position: fixed;
     height: 100vh;
@@ -42,7 +46,7 @@
     gap: 1rem;
   }
 
-  &__close-icon {
+  &__close-button {
     position: absolute;
     top: 1rem;
     right: 1rem;

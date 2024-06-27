@@ -1,51 +1,90 @@
 import { useState } from "react";
+import axios from "axios";
 import Modal from "react-modal";
 import "./DeleteModal.scss";
 import closeIcon from "../../assets/images/icons/close-24px.svg";
+import deleteIcon from "../../assets/images/icons/delete_outline-24px.svg";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import DeleteButton from "../../components/DeleteButton/DeleteButton";
+import { api_URL } from "../../utils/const";
 
-function DeleteModal({ toBeDeleted, itemType, typeOfList }) {
+// ensure useEffect has an empty dependency array and that useeffect and the actual api call function are separate
+// examples:
+{
+  /* <DeleteModal itemName={warehouse_name} itemId={id} itemType="warehouse" typeOfList="list of warehouses" onDeleteSuccess={fetchWarehouses} /> */
+}
+{
+  /* <DeleteModal itemName={name} itemId={id} itemType="inventory item" typeOfList="inventory list" onDeleteSuccess={fetchInventory} /> */
+}
+
+function DeleteModal({
+  itemName,
+  itemId,
+  itemType,
+  typeOfList,
+  onDeleteSuccess,
+}) {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
     setIsOpen(true);
   }
 
-  function afterOpenModal() {
-    //whatever happens goes here
-  }
-
   function closeModal() {
     setIsOpen(false);
   }
+
+  const deleteWarehouse = async () => {
+    const confirmed = window.confirm(
+      `Are you sure you want to delete warehouse ${itemName}?`
+    );
+
+    if (confirmed) {
+      try {
+        await axios.delete(`${api_URL}/api/warehouses/${itemId}`);
+        alert("Warehouse deleted successfully");
+        closeModal();
+        onDeleteSuccess();
+      } catch (error) {
+        alert("Unable to delete warehouse");
+      }
+    } else {
+      closeModal();
+    }
+  };
+
   return (
     <div className="delete">
-      <button onClick={openModal}>Replace with delete icon</button>
+      <button className="delete__icon" onClick={openModal}>
+        <img src={deleteIcon} alt="delete icon" />
+      </button>
       <Modal
         className="delete__modal"
         overlayClassName="delete__overlay"
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         contentLabel="Delete Modal"
       >
-        <button className="delete__close-icon" onClick={closeModal}>
-          <img className="delete__icon" src={closeIcon} alt="close icon" />
+        <button className="delete__close-button" onClick={closeModal}>
+          <img
+            className="delete__close-icon"
+            src={closeIcon}
+            alt="close icon"
+          />
         </button>
         <div className="delete__content">
           <div className="delete__text">
             <h1 className="delete__header">
-              Delete {toBeDeleted} {itemType}?
+              Delete {itemName} {itemType}?
             </h1>
             <p className="delete__text">
-              Please confirm that you’d like to delete {toBeDeleted} from the{" "}
+              Please confirm that you’d like to delete {itemName} from the
               {typeOfList}. You won’t be able to undo this action.
             </p>
           </div>
           <div className="delete__buttons">
             <SecondaryButton buttonText="Cancel" onClick={closeModal} />
-            <DeleteButton buttonText="Delete" />
+            <DeleteButton buttonText="Delete" onClick={deleteWarehouse} />
           </div>
         </div>
       </Modal>
