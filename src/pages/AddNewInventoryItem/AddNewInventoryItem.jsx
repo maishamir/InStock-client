@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import './AddNewInventoryItem.scss';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import PageTitle from "../../components/PageTitle/PageTitle";
+import { api_URL } from "../../utils/const";
 
 const AddNewItemForm = ({ onAddItem }) => {
     const [formData, setFormData] = useState({
@@ -22,7 +21,7 @@ const AddNewItemForm = ({ onAddItem }) => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('/api/inventories/categories');
+                const response = await axios.get(`${api_URL}/api/inventories/categories`);
                 setCategories(Array.isArray(response.data) ? response.data : []);
             } catch (error) {
                 console.error('Failed to fetch categories.', error);
@@ -32,7 +31,7 @@ const AddNewItemForm = ({ onAddItem }) => {
 
         const fetchWarehouses = async () => {
             try {
-                const response = await axios.get('/api/warehouses');
+                const response = await axios.get(`${api_URL}/api/warehouses`);
                 setWarehouses(Array.isArray(response.data) ? response.data : []);
             } catch (error) {
                 console.error('Failed to fetch warehouses.', error);
@@ -96,120 +95,118 @@ const AddNewItemForm = ({ onAddItem }) => {
     };
 
     return (
-        <>
-            <Header />
-            <main>
-                <form className="add-item-form" onSubmit={handleSubmit}>
-                    <PageTitle className="add-item-form__title" title="Add New Inventory Item"/>
-                    <section className="add-item-form__container">
-                    <div className="add-item-form__section">
-                        <h3 className="add-item-form__section-title">Item Details</h3>
+        <main>
+            <form className="add-item-form" onSubmit={handleSubmit}>
+                <PageTitle className="add-item-form__title" title="Add New Inventory Item"/>
+                <section className="add-item-form__container">
+                <div className="add-item-form__section">
+                    <h3 className="add-item-form__section-title">Item Details</h3>
+                    <div className="add-item-form__group">
+                        <label className="add-item-form__label" htmlFor="item_name">Item Name</label>
+                        <input 
+                            type="text"
+                            name="item_name"
+                            placeholder="Item Name"
+                            value={formData.item_name}
+                            onChange={handleChange}
+                            className={`add-item-form__input ${errors.item_name ? 'add-item-form__input--error' : ''}`}
+                        />
+                        {errors.item_name && <span className="add-item-form__error-message">{errors.item_name}</span>}
+                    </div>
+                    <div className="add-item-form__group">
+                        <label className="add-item-form__label" htmlFor="description">Description</label>
+                        <textarea 
+                            name="description"
+                            placeholder="Please enter a brief item description..."
+                            value={formData.description}
+                            onChange={handleChange}
+                            className={`add-item-form__textarea ${errors.description ? 'add-item-form__textarea--error' : ''}`}
+                        />
+                        {errors.description && <span className="add-item-form__error-message">{errors.description}</span>}
+                    </div>
+                    <div className="add-item-form__group">
+                        <label className="add-item-form__label" htmlFor="category">Category</label>
+                        <select
+                            name="category"
+                            value={formData.category}
+                            onChange={handleChange}
+                            className={`add-item-form__select ${errors.category ? 'add-item-form__select--error' : ''}`}
+                            >
+                            <option className="add-item-form__select--placeholder" value="">Please select</option>
+                            {categories.map(category => (
+                                <option key={category} value={category.name}>{category.name}</option>
+                            ))}
+                        </select>
+                        {errors.category && <span className="add-item-form__error-message">{errors.category}</span>}
+                    </div>
+                </div>
+                <div className="add-item-form__section">
+                    <h3 className="add-item-form__section-title">Item Availability</h3>
+                    <div className="add-item-form__group">
+                        <label className="add-item-form__label" htmlFor="status">Status</label>
+                        <div className="add-item-form__radio-group">
+                            <label className="add-item-form__radio-label" htmlFor="radio">
+                                <input 
+                                    type="radio"
+                                    name="status"
+                                    value="In Stock"
+                                    checked={formData.status === 'In Stock'}
+                                    onChange={handleChange}
+                                    className="add-item-form__radio-input"
+                                />
+                                In stock
+                            </label>
+                            <label className="add-item-form__radio-label" htmlFor="radio">
+                                <input 
+                                    type="radio"
+                                    name="status"
+                                    value="Out of Stock"
+                                    checked={formData.status === 'Out of Stock'}
+                                    onChange={handleChange}
+                                    className="add-item-form__radio-input"
+                                />
+                                Out of stock
+                            </label>
+                        </div>
+                        {errors.status && <span className="add-item-form__error-message">{errors.status}</span>}
+                    </div>
+                    {formData.status === 'In Stock' && (
                         <div className="add-item-form__group">
-                            <label className="add-item-form__label" htmlFor="item_name">Item Name</label>
+                            <label className="add-item-form__label" htmlFor="quantity">Quantity</label>
                             <input 
                                 type="text"
-                                name="item_name"
-                                placeholder="Item Name"
-                                value={formData.item_name}
+                                name="quantity"
+                                placeholder="0"
+                                value={formData.quantity}
                                 onChange={handleChange}
-                                className={`add-item-form__input ${errors.item_name ? 'add-item-form__input--error' : ''}`}
+                                className={`add-item-form__input ${errors.quantity ? 'add-item-form__input--error' : ''}`}
                             />
-                            {errors.item_name && <span className="add-item-form__error-message">{errors.item_name}</span>}
+                            {errors.quantity && <span className="add-item-form__error-message">{errors.quantity}</span>}
                         </div>
-                        <div className="add-item-form__group">
-                            <label className="add-item-form__label" htmlFor="description">Description</label>
-                            <textarea 
-                                name="description"
-                                placeholder="Please enter a brief item description..."
-                                value={formData.description}
-                                onChange={handleChange}
-                                className={`add-item-form__textarea ${errors.description ? 'add-item-form__textarea--error' : ''}`}
-                            />
-                            {errors.description && <span className="add-item-form__error-message">{errors.description}</span>}
-                        </div>
-                        <div className="add-item-form__group">
-                            <label className="add-item-form__label" htmlFor="category">Category</label>
-                            <select
-                                name="category"
-                                value={formData.category}
-                                onChange={handleChange}
-                                className={`add-item-form__select ${errors.category ? 'add-item-form__select--error' : ''}`}
-                                >
-                                <option className="add-item-form__select--placeholder" value="">Please select</option>
-                                {categories.map(category => (
-                                    <option key={category} value={category.name}>{category.name}</option>
-                                ))}
-                            </select>
-                            {errors.category && <span className="add-item-form__error-message">{errors.category}</span>}
-                        </div>
+                    )}
+                    <div className="add-item-form__group">
+                        <label className="add-item-form__label" htmlFor="warehouse_id">Warehouse</label>
+                        <select
+                            name="warehouse"
+                            value={formData.warehouse_id}
+                            onChange={handleChange}
+                            className={`add-item-form__select ${errors.warehouse_id ? 'add-item-form__select--error' : ''}`}
+                            >
+                            <option value="">Please select</option>
+                            {warehouses.map(warehouse => (
+                                <option key={warehouse.id} value={warehouse.id}>{warehouse.name}</option>
+                            ))}
+                        </select>
+                        {errors.warehouse_id && <span className="add-item-form__error-message">{errors.warehouse_id}</span>}
                     </div>
-                    <div className="add-item-form__section">
-                        <h3 className="add-item-form__section-title">Item Availability</h3>
-                        <div className="add-item-form__group">
-                            <label className="add-item-form__label" htmlFor="status">Status</label>
-                            <div className="add-item-form__radio-group">
-                                <label className="add-item-form__radio-label" htmlFor="radio">
-                                    <input 
-                                        type="radio"
-                                        name="status"
-                                        value="In Stock"
-                                        checked={formData.status === 'In Stock'}
-                                        onChange={handleChange}
-                                    />
-                                    In stock
-                                </label>
-                                <label className="add-item-form__radio-label" htmlFor="radio">
-                                    <input 
-                                        type="radio"
-                                        name="status"
-                                        value="Out of Stock"
-                                        checked={formData.status === 'Out of Stock'}
-                                        onChange={handleChange}
-                                    />
-                                    Out of stock
-                                </label>
-                            </div>
-                            {errors.status && <span className="add-item-form__error-message">{errors.status}</span>}
-                        </div>
-                        {formData.status === 'In Stock' && (
-                            <div className="add-item-form__group">
-                                <label className="add-item-form__label" htmlFor="quantity">Quantity</label>
-                                <input 
-                                    type="text"
-                                    name="quantity"
-                                    placeholder="0"
-                                    value={formData.quantity}
-                                    onChange={handleChange}
-                                    className={`add-item-form__input ${errors.quantity ? 'add-item-form__input--error' : ''}`}
-                                />
-                                {errors.quantity && <span className="add-item-form__error-message">{errors.quantity}</span>}
-                            </div>
-                        )}
-                        <div className="add-item-form__group">
-                            <label className="add-item-form__label" htmlFor="warehouse_id">Warehouse</label>
-                            <select
-                                name="warehouse"
-                                value={formData.warehouse_id}
-                                onChange={handleChange}
-                                className={`add-item-form__select ${errors.warehouse_id ? 'add-item-form__select--error' : ''}`}
-                                >
-                                <option value="">Please select</option>
-                                {warehouses.map(warehouse => (
-                                    <option key={warehouse.id} value={warehouse.id}>{warehouse.name}</option>
-                                ))}
-                            </select>
-                            {errors.warehouse_id && <span className="add-item-form__error-message">{errors.warehouse_id}</span>}
-                        </div>
-                    </div>
-                    <div className="add-item-form__actions">
-                        <button type="button" className="add-item-form__button add-item-form__button--cancel">Cancel</button>
-                        <button type="submit" className="add-item-form__button add-item-form__button--submit">+ Add Item</button>
-                    </div>
-                    </section>
-                </form>
-            </main>
-            <Footer />
-        </>
+                </div>
+                <div className="add-item-form__actions">
+                    <button type="button" className="add-item-form__button add-item-form__button--cancel">Cancel</button>
+                    <button type="submit" className="add-item-form__button add-item-form__button--submit">+ Add Item</button>
+                </div>
+                </section>
+            </form>
+        </main>
     );
 }
 
