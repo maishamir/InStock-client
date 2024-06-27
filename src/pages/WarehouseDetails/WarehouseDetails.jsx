@@ -4,29 +4,30 @@ import { useParams } from "react-router-dom";
 import { api_URL } from "../../utils/const";
 import "./WarehouseDetails.scss";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import DeleteModal from "../../components/DeleteModal/DeleteModal";
 // cut for delete model
-import Modal from "react-modal";
-import closeIcon from "../../assets/images/icons/close-24px.svg";
-import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
-import DeleteButton from "../../components/DeleteButton/DeleteButton";
+// import Modal from "react-modal";
+// import closeIcon from "../../assets/images/icons/close-24px.svg";
+// import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
+// import DeleteButton from "../../components/DeleteButton/DeleteButton";
 
 function WarehouseDetails() {
   const { warehouseId } = useParams();
   const [warehouse, setWarehouse] = useState(null);
   // move for delete model
-  const [modalIsOpen, setIsOpen] = useState(false);
+  // const [modalIsOpen, setIsOpen] = useState(false);
 
-  function openModal() {
-    setIsOpen(true);
-  }
+  // function openModal() {
+  //   setIsOpen(true);
+  // }
 
-  function afterOpenModal() {
-    //whatever happens goes here
-  }
+  // function afterOpenModal() {
+  //   //whatever happens goes here
+  // }
 
-  function closeModal() {
-    setIsOpen(false);
-  }
+  // function closeModal() {
+  //   setIsOpen(false);
+  // }
   // end cut
 
   useEffect(() => {
@@ -96,8 +97,13 @@ function WarehouseDetails() {
           </div>
         </div>
       </article>
+      <DeleteModal
+        toBeDeleted={warehouse_name}
+        itemType="warehouse"
+        typeOfList="list of warehouses"
+      />
       {/* cut for modal */}
-      <div className="delete">
+      {/* <div className="delete">
         <button onClick={openModal}>Replace with delete icon</button>
         <Modal
           className="delete__modal"
@@ -127,7 +133,7 @@ function WarehouseDetails() {
             </div>
           </div>
         </Modal>
-      </div>
+      </div> */}
       {/* end cut */}
     </main>
   );
