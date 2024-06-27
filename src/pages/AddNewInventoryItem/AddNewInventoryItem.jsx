@@ -97,7 +97,7 @@ const AddNewItemForm = ({ onAddItem }) => {
         <main>
             <form className="add-item-form" onSubmit={handleSubmit}>
                 <PageTitle className="add-item-form__title" title="Add New Inventory Item"/>
-                <section className="add-item-form__container--top">
+                <section className="add-item-form__container">
                 <div className="add-item-form__section">
                     <h3 className="add-item-form__section-title">Item Details</h3>
                     <div className="add-item-form__group">
@@ -131,7 +131,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                             onChange={handleChange}
                             className={`add-item-form__select ${errors.category ? 'add-item-form__select--error' : ''}`}
                             >
-                            <option className="add-item-form__select--option" value="">Please select</option>
+                            <option className="add-item-form__select--option" value="" default>Please select</option>
                             {categories.map((category, index) => (
                                 <option key={index} value={category}>{category}</option>
                             ))}
@@ -195,24 +195,24 @@ const AddNewItemForm = ({ onAddItem }) => {
                     <div className="add-item-form__group">
                         <label className="add-item-form__label" htmlFor="warehouse_id">Warehouse</label>
                         <select
-                            name="warehouse"
+                            name="warehouse_id"
                             value={formData.warehouse_id}
                             onChange={handleChange}
                             className={`add-item-form__select ${errors.warehouse_id ? 'add-item-form__select--error' : ''}`}
                             >
-                            <option className="add-item-form__select--option" value="">Please select</option>
-                            {warehouses.map(warehouse => (
+                            <option className="add-item-form__select--option" value="" default>Please select</option>
+                            {warehouses.map((warehouse) => (
                                 <option key={warehouse.id} value={warehouse.id}>{warehouse.warehouse_name}</option>
                             ))}
                         </select>
                         {errors.warehouse_id && <span className="add-item-form__error-message">{errors.warehouse_id}</span>}
                     </div>
                 </div>
+                </section>
                 <div className="add-item-form__actions">
                     <button type="button" className="add-item-form__button add-item-form__button--cancel">Cancel</button>
                     <button type="submit" className="add-item-form__button add-item-form__button--submit">+ Add Item</button>
                 </div>
-                </section>
             </form>
         </main>
     );

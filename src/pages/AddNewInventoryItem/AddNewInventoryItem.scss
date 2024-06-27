@@ -16,11 +16,7 @@
     }
 
     &__container {
-        padding: 1.5rem;
-
-        &--top {
-            padding: 1.5rem 1.5rem 0rem 1.5rem;
-        }
+        padding: 1.5rem 1.5rem 0rem 1.5rem;
     }
 
     &__section {
@@ -109,21 +105,24 @@
 
     &__actions {
         display: flex;
-        justify-content: space-between;
-        margin-top: 2rem;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        background-color: $light-grey;
     }
 
     &__button {
         @include secbuttons;
+        width: 100%;
         @include text-label;
         cursor: pointer;
 
         &--cancel {
-            background-color: $light-grey;
-            color: $instock-black;
+            border: .0625rem solid $cloud;
+            background-color: $white;
+            color: $slate;
 
             &:hover {
-                background-color: $cloud;
+                background-color: $graphite;
             }
         }
 
