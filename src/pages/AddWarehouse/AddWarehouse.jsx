@@ -1,5 +1,7 @@
 import TextField from "../../components/TextField/TextField";
 import returnIcon from '../../assets/images/icons/arrow_back-24px.svg';
+import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
+import SecondaryButton from "../../components/SecondaryButton/SecondaryButton"
 
 function AddWarehouse() {
   return <main>
@@ -23,6 +25,10 @@ function AddWarehouse() {
   <TextField name="Phone Number" placeholder="Email"/>
 </div>
 
+<div>
+  <SecondaryButton buttonText = "Cancel" />
+  <PrimaryButton buttonText = "+ Add Warehouse" />
+</div>
 
   </main>;
 }

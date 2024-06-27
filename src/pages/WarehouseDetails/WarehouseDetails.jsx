@@ -7,7 +7,6 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 // cut for delete model
 import Modal from "react-modal";
 import closeIcon from "../../assets/images/icons/close-24px.svg";
-import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import DeleteButton from "../../components/DeleteButton/DeleteButton";
 
