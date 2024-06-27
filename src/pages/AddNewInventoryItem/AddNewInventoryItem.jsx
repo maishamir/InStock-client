@@ -95,7 +95,7 @@ const AddNewItemForm = ({ onAddItem }) => {
     return (
         <main>
             <form className="add-item-form" onSubmit={handleSubmit}>
-                <PageTitle className="add-item-form__title" title="Add New Inventory Item"/>
+                <PageTitle className="add-item-form__title" title="Add New Inventory Item" backLink="/inventory"/>
                 <section className="add-item-form__tablet-container">
                 <section className="add-item-form__container add-item-form__container--top">
                 <div className="add-item-form__section">
