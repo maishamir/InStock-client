@@ -23,22 +23,18 @@ const AddNewItemForm = ({ onAddItem }) => {
         const fetchCategories = async () => {
             try {
                 const response = await axios.get(`${api_URL}/api/inventories/categories`);
-                console.log(response.data);
-                setCategories(Array.isArray(response.data) ? response.data : []);
+                setCategories(response.data);
             } catch (error) {
                 console.error('Failed to fetch categories.', error);
-                setCategories([]);
             }
         };
 
         const fetchWarehouses = async () => {
             try {
                 const response = await axios.get(`${api_URL}/api/warehouses`);
-                console.log(response.data);
-                setWarehouses(Array.isArray(response.data) ? response.data : []);
+                setWarehouses(response.data);
             } catch (error) {
                 console.error('Failed to fetch warehouses.', error);
-                setWarehouses([]);
             }
         };
 
