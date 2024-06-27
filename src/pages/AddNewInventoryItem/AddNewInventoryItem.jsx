@@ -3,6 +3,7 @@ import axios from 'axios';
 import './AddNewInventoryItem.scss';
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { api_URL } from "../../utils/const";
+import { Link } from "react-router-dom";
 
 const AddNewItemForm = ({ onAddItem }) => {
     const [formData, setFormData] = useState({
@@ -210,7 +211,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                 </section>
                 </section>
                 <div className="add-item-form__actions">
-                    <button type="button" className="add-item-form__button add-item-form__button--cancel">Cancel</button>
+                    <button type="button" className="add-item-form__button add-item-form__button--cancel"><Link to={`"/inventory"`}>Cancel</Link></button>
                     <button type="submit" className="add-item-form__button add-item-form__button--submit">+ Add Item</button>
                 </div>
             </form>
