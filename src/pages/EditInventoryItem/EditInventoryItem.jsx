@@ -97,7 +97,7 @@ const EditItemForm = ({ itemId, onUpdateItem }) => {
     return (
         <main>
             <form className="edit-item-form" onSubmit={handleSubmit}>
-                <PageTitle className="edit-item-form__title" title="Add New Inventory Item" backLink="/inventory"/>
+                <PageTitle className="edit-item-form__title" title="Edit Inventory Item" backLink="/inventory/:inventoryItemId"/>
                 <section className="edit-item-form__tablet-container">
                 <section className="edit-item-form__container edit-item-form__container--top">
                 <div className="edit-item-form__section">
@@ -213,7 +213,7 @@ const EditItemForm = ({ itemId, onUpdateItem }) => {
                 </section>
                 <div className="edit-item-form__actions">
                     <button type="button" className="edit-item-form__button edit-item-form__button--cancel">Cancel</button>
-                    <button type="submit" className="edit-item-form__button edit-item-form__button--submit">+ Add Item</button>
+                    <button type="submit" className="edit-item-form__button edit-item-form__button--submit">Save</button>
                 </div>
             </form>
         </main>
