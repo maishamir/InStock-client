@@ -128,27 +128,6 @@ function WarehouseDetails() {
           </div>
         </Modal>
       </div>
-      <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae id quos
-        asperiores labore blanditiis ducimus earum! Reprehenderit omnis,
-        voluptas facere rem recusandae officia, ab dolor odit enim explicabo
-        eveniet similique? Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Obcaecati, vero. Fugit vitae itaque accusamus eveniet animi, rem,
-        inventore deleniti natus veniam atque voluptatem, id consequatur
-        aspernatur totam! Sit, similique quasi. Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit. Qui accusamus eaque commodi nesciunt
-        ratione perspiciatis quasi non itaque delectus dolores consequatur amet,
-        repellendus nam suscipit sunt. Rem ratione inventore nulla? Lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Maiores, dolore! Nam,
-        voluptas possimus in est et deserunt ratione commodi sint sit aut autem
-        cupiditate non, consectetur nisi distinctio facilis nobis! Lorem ipsum
-        dolor sit, amet consectetur adipisicing elit. Nihil dicta est quis
-        quaerat quae eos, ut fugit nobis ipsa, esse ab perferendis, consectetur
-        pariatur omnis voluptates autem incidunt adipisci necessitatibus! Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Perferendis optio in
-        magnam voluptate fugiat quae ea vitae numquam voluptatum alias. Labore
-        optio omnis eius quasi illum alias id consequuntur a.
-      </span>
       {/* end cut */}
     </main>
   );
