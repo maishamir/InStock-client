@@ -68,7 +68,7 @@ const AddNewItemForm = ({ onAddItem }) => {
         }
 
         try {
-            const response = await axios.post('/api/inventories', formData);
+            const response = await axios.post(`${api_URL}/api/inventories`, formData);
             onAddItem(response.data);
             setFormData({
                 warehouse_id: '',
