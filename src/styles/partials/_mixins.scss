@@ -181,9 +181,13 @@
   padding-right: 1rem;
   height: 2.25rem;
   border-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 
   @include tablet {
     height: 2.375rem;
+    width: auto;
   }
 
   @include desktop {
@@ -196,9 +200,13 @@
   padding-left: 1rem;
   padding-right: 1rem;
   height: 2.25rem;
+  width: 100%;
+  isplay: flex;
+  justify-content: center;
 
   @include tablet {
     height: 2.375rem;
+    width: auto;
   }
 
   @include desktop {
@@ -208,7 +216,6 @@
 
 @mixin page-formatting {
   position: relative;
-  z-index: 3;
   background-color: $white;
   margin: 8.5rem 1rem 5rem;
   border-radius: 0.1875rem;
