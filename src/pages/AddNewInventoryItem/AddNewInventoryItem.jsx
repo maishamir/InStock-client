@@ -3,7 +3,6 @@ import axios from 'axios';
 import './AddNewInventoryItem.scss';
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { api_URL } from "../../utils/const";
-import DividerLine from "../../components/DividerLine/DividerLine";
 
 const AddNewItemForm = ({ onAddItem }) => {
     const [formData, setFormData] = useState({
@@ -97,7 +96,8 @@ const AddNewItemForm = ({ onAddItem }) => {
         <main>
             <form className="add-item-form" onSubmit={handleSubmit}>
                 <PageTitle className="add-item-form__title" title="Add New Inventory Item"/>
-                <section className="add-item-form__container">
+                <section className="add-item-form__tablet-container">
+                <section className="add-item-form__container add-item-form__container--top">
                 <div className="add-item-form__section">
                     <h3 className="add-item-form__section-title">Item Details</h3>
                     <div className="add-item-form__group">
@@ -140,7 +140,6 @@ const AddNewItemForm = ({ onAddItem }) => {
                     </div>
                 </div>
                 </section>
-                <DividerLine />
                 <section className="add-item-form__container">
                 <div className="add-item-form__section">
                     <h3 className="add-item-form__section-title">Item Availability</h3>
@@ -208,6 +207,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                         {errors.warehouse_id && <span className="add-item-form__error-message">{errors.warehouse_id}</span>}
                     </div>
                 </div>
+                </section>
                 </section>
                 <div className="add-item-form__actions">
                     <button type="button" className="add-item-form__button add-item-form__button--cancel">Cancel</button>
