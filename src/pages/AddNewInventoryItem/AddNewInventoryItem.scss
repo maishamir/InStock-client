@@ -59,6 +59,10 @@
     &__radio-group {
         display: flex;
         gap: 6rem;
+
+        @include tablet {
+            gap: 3rem;
+        }
     }
 
     &__radio-label {
@@ -132,6 +136,10 @@
         gap: 1rem;
         padding: 1rem 1.5rem;
         background-color: $light-grey;
+
+        @include tablet {
+            justify-content: right;
+        }
     }
 
     &__button {
@@ -139,6 +147,10 @@
         width: 100%;
         @include text-label;
         cursor: pointer;
+
+        @include tablet {
+            width: 15%;
+        }
 
         &--cancel {
             border: .0625rem solid $cloud;
