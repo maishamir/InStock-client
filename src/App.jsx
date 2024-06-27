@@ -3,19 +3,19 @@ import Header from "./components/Header/Header";
 import WarehouseList from "./pages/WarehouseList/WarehouseList";
 import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
-import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 import InventoryList from "./pages/InventoryList/InventoryList";
 import InventoryItemDetails from "./pages/InventoryItemDetails/InventoryItemDetails";
 import AddNewItemForm from "./pages/AddNewInventoryItem/AddNewInventoryItem";
 import Footer from "./components/Footer/Footer";
 import "./App.scss";
+import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <AddWarehouse />
+        <Header />  
+        <AddWarehouse />      
         <Routes>
           <Route path="/" element={<WarehouseList />} />
           <Route
