@@ -14,8 +14,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />  
-        <AddWarehouse />      
+        <Header />
         <Routes>
           <Route path="/" element={<WarehouseList />} />
           <Route
