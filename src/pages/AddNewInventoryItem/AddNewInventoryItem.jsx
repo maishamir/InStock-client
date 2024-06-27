@@ -131,7 +131,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                             onChange={handleChange}
                             className={`add-item-form__select ${errors.category ? 'add-item-form__select--error' : ''}`}
                             >
-                            <option className="add-item-form__select--option" value="" default>Please select</option>
+                            <option value="" disabled="disabled" default>Please select</option>
                             {categories.map((category, index) => (
                                 <option key={index} value={category}>{category}</option>
                             ))}
@@ -199,7 +199,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                             onChange={handleChange}
                             className={`add-item-form__select ${errors.warehouse_id ? 'add-item-form__select--error' : ''}`}
                             >
-                            <option className="add-item-form__select--option" value="" default>Please select</option>
+                            <option value="" disabled="disabled" default>Please select</option>
                             {warehouses.map((warehouse) => (
                                 <option key={warehouse.id} value={warehouse.id}>{warehouse.warehouse_name}</option>
                             ))}

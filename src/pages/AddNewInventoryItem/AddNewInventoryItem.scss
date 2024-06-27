@@ -26,7 +26,7 @@
             @include divider-line;
 
             @include tablet {
-                border-right: 1px solid $cloud;
+                border-right: .0625rem solid $cloud;
                 border-bottom: none;
             }
         }
@@ -126,10 +126,6 @@
         background-color: $white;
         background-size: 1rem;
         @include text-bodyMedium;
-
-        &--option {
-            color: $slate;
-        }
     }
 
     &__error-message {
@@ -189,7 +185,7 @@
 }
 
 // style placeholder text //
-
+option:not(:checked),
 input::placeholder,
 textarea::placeholder {
     @include text-bodyMedium;
