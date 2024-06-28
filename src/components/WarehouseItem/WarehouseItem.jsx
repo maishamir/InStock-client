@@ -1,6 +1,5 @@
 import React from "react";
 import "./WarehouseItem.scss";
-// import deleteIcon from "../../assets/images/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/images/icons/edit-24px.svg";
 import { Link } from "react-router-dom";
 import arrow from "../../assets/images/icons/chevron_right-24px.svg";
@@ -15,7 +14,6 @@ function WarehouseItem({
   country,
   warehouse_name,
   id,
-  // add prop:
   fetchWarehouses,
 }) {
   console.log(id);
@@ -60,7 +58,6 @@ function WarehouseItem({
       </div>
 
       <div className="warehouse-item__actions">
-        {/* <img src={deleteIcon} alt="" /> */}
         <DeleteModal
           itemName={warehouse_name}
           itemId={id}

@@ -1,18 +1,21 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/typography' as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
 
+.primary-button {
+  background-color: $instock-indigo;
+  display: flex;
+  align-items: center;
+  color: $white;
+  @include pributtons;
 
-.primary-button{
-    background-color: $instock-indigo;
-    display: flex;
-    align-items: center;
-    color: $white;
-    @include pributtons
+  &__text {
+    // @include text-bodySmall;
+  }
 }
 
 .primary-button:hover {
-    background-color: $graphite;
-    
-    @include pributtons
+  background-color: $graphite;
+
+  @include pributtons;
 }

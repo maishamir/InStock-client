@@ -8,15 +8,6 @@ import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import DeleteButton from "../../components/DeleteButton/DeleteButton";
 import { api_URL } from "../../utils/const";
 
-// ensure useEffect has an empty dependency array and that useeffect and the actual api call function are separate
-// examples:
-{
-  /* <DeleteModal itemName={warehouse_name} itemId={id} itemType="warehouse" route="warehouses" typeOfList="list of warehouses" onDeleteSuccess={fetchWarehouses} /> */
-}
-{
-  /* <DeleteModal itemName={name} itemId={id} itemType="inventory item" route="inventories" typeOfList="inventory list" onDeleteSuccess={fetchInventory} /> */
-}
-
 function DeleteModal({
   itemName,
   itemId,
