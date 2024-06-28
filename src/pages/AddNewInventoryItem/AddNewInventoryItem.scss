@@ -148,18 +148,23 @@
     }
 
     &__button {
-        @include secbuttons;
+        border-radius: 1.25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        height: 2.25rem;
         width: 100%;
         @include text-label;
         cursor: pointer;
 
         @include tablet {
             max-width: 15%;
+            height: 2.375rem;
         }
 
         @include desktop {
             max-width: 10%;
             margin-right: 0.5rem;
+            height: 2.375rem;
         }
 
         &--cancel {
@@ -174,9 +179,21 @@
         }
 
         &--submit {
-            @include pributtons;
+            border-radius: 1.25rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            height: 2.25rem;
+            border-style: none;
             background-color: $instock-indigo;
             color: $white;
+
+            @include tablet {
+                height: 2.375rem;
+              }
+            
+              @include desktop {
+                height: 2.375rem;
+              }
 
             &:hover {
                 background-color: $graphite;
