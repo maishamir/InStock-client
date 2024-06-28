@@ -171,6 +171,10 @@ const AddNewItemForm = ({ onAddItem }) => {
                   onChange={handleChange}
                   className={`add-item-form__select ${
                     errors.category ? "add-item-form__select--error" : ""
+                  } ${
+                    formData.category === ""
+                      ? "add-item-form__select--default"
+                      : ""
                   }`}
                 >
                   <option value="" disabled="disabled" default>
@@ -200,40 +204,42 @@ const AddNewItemForm = ({ onAddItem }) => {
                   Status
                 </label>
                 <div className="add-item-form__radio-group">
+                  <input
+                    type="radio"
+                    id="in-stock"
+                    name="status"
+                    value="In Stock"
+                    checked={formData.status === "In Stock"}
+                    onChange={handleChange}
+                    className="add-item-form__radio-input"
+                  />
                   <label
                     className={`add-item-form__radio-label ${
                       formData.status === "In Stock"
                         ? "add-item-form__radio-label--active"
                         : ""
                     }`}
-                    htmlFor="radio"
+                    htmlFor="in-stock"
                   >
-                    <input
-                      type="radio"
-                      name="status"
-                      value="In Stock"
-                      checked={formData.status === "In Stock"}
-                      onChange={handleChange}
-                      className="add-item-form__radio-input"
-                    />
                     In stock
                   </label>
+                  <input
+                    type="radio"
+                    id="out-of-stock"
+                    name="status"
+                    value="Out of Stock"
+                    checked={formData.status === "Out of Stock"}
+                    onChange={handleChange}
+                    className="add-item-form__radio-input"
+                  />
                   <label
                     className={`add-item-form__radio-label ${
                       formData.status === "Out of Stock"
                         ? "add-item-form__radio-label--active"
                         : ""
                     }`}
-                    htmlFor="radio"
+                    htmlFor="out-of-stock"
                   >
-                    <input
-                      type="radio"
-                      name="status"
-                      value="Out of Stock"
-                      checked={formData.status === "Out of Stock"}
-                      onChange={handleChange}
-                      className="add-item-form__radio-input"
-                    />
                     Out of stock
                   </label>
                 </div>
@@ -275,6 +281,10 @@ const AddNewItemForm = ({ onAddItem }) => {
                   onChange={handleChange}
                   className={`add-item-form__select ${
                     errors.warehouse_id ? "add-item-form__select--error" : ""
+                  } ${
+                    formData.warehouse_id === ""
+                      ? "add-item-form__select--default"
+                      : ""
                   }`}
                 >
                   <option value="" disabled="disabled" default>
