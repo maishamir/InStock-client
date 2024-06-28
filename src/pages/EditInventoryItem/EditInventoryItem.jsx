@@ -60,7 +60,7 @@ const EditItemForm = ({ onUpdateItem }) => {
         const newErrors = {};
 
         Object.keys(formData).forEach(key => {
-            if (!formData[key] && key != 'quantity') {
+            if (!formData[key] && key !== 'quantity') {
                 newErrors[key] = 'This field is required.';
             }
         });
