@@ -8,10 +8,6 @@
   align-items: center;
   color: $white;
   @include pributtons;
-
-  &__text {
-    // @include text-bodySmall;
-  }
 }
 
 .primary-button:hover {

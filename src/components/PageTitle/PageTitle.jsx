@@ -33,22 +33,6 @@ function PageTitle({ backLink, title, showEdit, editLink }) {
           />
           <p className="page-title__edit-text">Edit</p>
         </button>
-        // <PrimaryButton
-        //   buttonExtraClass="page-title__edit-button"
-        //   onClick={handleEditClick}
-        //   // iconExtraClass="page-title__edit-icon"
-        //   // iconSrc={editIcon}
-        //   // iconAlt="edit icon"
-        //   buttonText="Edit"
-        //   // textClass="page-title__hidden-text"
-        // >
-        //   <img
-        //     className="page-title__edit-icon"
-        //     src={editIcon}
-        //     alt="edit icon"
-        //   />
-        //   {/* <p className="page-title__edit-text">Edit</p> */}
-        // </PrimaryButton>
       )}
     </div>
   );
