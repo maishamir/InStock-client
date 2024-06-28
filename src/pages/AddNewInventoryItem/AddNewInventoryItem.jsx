@@ -161,34 +161,32 @@ const AddNewItemForm = ({ onAddItem }) => {
                     <div className="add-item-form__group">
                         <label className="add-item-form__label" htmlFor="status">Status</label>
                         <div className="add-item-form__radio-group">
+                        <input 
+                                type="radio"
+                                id="in-stock"
+                                name="status"
+                                value="In Stock"
+                                checked={formData.status === 'In Stock'}
+                                onChange={handleChange}
+                                className="add-item-form__radio-input"
+                            />
                             <label 
                                 className={`add-item-form__radio-label ${formData.status === 'In Stock' ? 'add-item-form__radio-label--active' : ''}`}
-                                htmlFor="radio"
-                            >
-                                <input 
-                                    type="radio"
-                                    name="status"
-                                    value="In Stock"
-                                    checked={formData.status === 'In Stock'}
-                                    onChange={handleChange}
-                                    className="add-item-form__radio-input"
-                                />
-                                In stock
-                            </label>
+                                htmlFor="in-stock"
+                            >In stock</label>
+                            <input 
+                                type="radio"
+                                id="out-of-stock"
+                                name="status"
+                                value="Out of Stock"
+                                checked={formData.status === 'Out of Stock'}
+                                onChange={handleChange}
+                                className="add-item-form__radio-input"
+                            />
                             <label 
                                 className={`add-item-form__radio-label ${formData.status === 'Out of Stock' ? 'add-item-form__radio-label--active' : ''}`}
-                                htmlFor="radio"
-                            >
-                                <input 
-                                    type="radio"
-                                    name="status"
-                                    value="Out of Stock"
-                                    checked={formData.status === 'Out of Stock'}
-                                    onChange={handleChange}
-                                    className="add-item-form__radio-input"
-                                />
-                                Out of stock
-                            </label>
+                                htmlFor="out-of-stock"
+                            >Out of stock</label>
                         </div>
                         {errors.status && <span className="add-item-form__error-message">{errors.status}</span>}
                     </div>
