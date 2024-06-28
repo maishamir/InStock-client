@@ -55,7 +55,10 @@ const AddNewItemForm = ({ onAddItem }) => {
       }
     });
 
-    if (formData.status === "In Stock" && !formData.quantity) {
+    if (
+      formData.status === "In Stock" &&
+      (!formData.quantity || formData.quantity === "0")
+    ) {
       newErrors.quantity = "Quantity is required when status is In stock.";
     } else if (formData.quantity && isNaN(formData.quantity)) {
       newErrors.quantity = "Quantity must be a number.";
