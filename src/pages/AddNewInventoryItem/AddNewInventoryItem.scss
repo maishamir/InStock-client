@@ -6,6 +6,43 @@
     align-items: baseline;
 }
 
+.page-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    @include divider-line;
+  
+    @include tablet {
+      padding: 0 2rem;
+    }
+  
+    @include desktop {
+      padding: 0 2.5rem;
+    }
+  
+        &__back-link {
+        height: 1.5rem;
+        width: 1.5rem;
+        margin-top: 0.3rem;
+        }
+    
+        &__container {
+        display: flex;
+        align-items: center;
+        }
+    
+        &__back-icon {
+        height: 1.5rem;
+        width: 1.5rem;
+        }
+    
+        &__header {
+        margin: 1.75rem 0.5rem;
+        @include text-header;
+        }
+  }
+
 .add-item-form {
     @include page-formatting;
     
