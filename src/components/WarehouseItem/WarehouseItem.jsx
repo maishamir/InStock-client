@@ -1,11 +1,11 @@
 import React from 'react';
-import deleteIcon from "../../assets/images/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/images/icons/edit-24px.svg";
 import { Link } from 'react-router-dom';
 import arrow from "../../assets/images/icons/chevron_right-24px.svg";
 import "./WarehouseItem.scss";
+import DeleteModal from "../DeleteModal/DeleteModal"
 
-function WarehouseItem({ warehouse }) {
+function WarehouseItem({ warehouse, fetchWarehouses}) {
   return (
     <div className="warehouse-item">
       <div className="warehouse-item__info warehouse-item__info--warehouse">
@@ -38,7 +38,14 @@ function WarehouseItem({ warehouse }) {
 
       <div className="warehouse-item__info warehouse-item__info--actions">
         <h4 className="warehouse-item__label">ACTIONS</h4>
-        <img src={deleteIcon} alt="" className="warehouse-item__delete" />
+        <DeleteModal
+          itemName={warehouse.warehouse_name}
+          itemId={warehouse.id}
+          itemType="warehouse"
+          route="warehouses"
+          typeOfList="list of warehouses"
+          onDeleteSuccess={fetchWarehouses}
+        />
         <img src={editIcon} alt="" className="warehouse-item__edit" />
       </div>
     </div>
