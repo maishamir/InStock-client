@@ -25,30 +25,30 @@ function PageTitle({ backLink, title, showEdit, editLink }) {
         <h1 className="page-title__header">{title}</h1>
       </div>
       {showEdit && (
-        // <button className="page-title__edit-button" onClick={handleEditClick}>
-        //   <img
-        //     className="page-title__edit-icon"
-        //     src={editIcon}
-        //     alt="edit icon"
-        //   />
-        //   <p className="page-title__edit-text">Edit</p>
-        // </button>
-        <PrimaryButton
-          buttonExtraClass="page-title__edit-button"
-          onClick={handleEditClick}
-          // iconExtraClass="page-title__edit-icon"
-          // iconSrc={editIcon}
-          // iconAlt="edit icon"
-          buttonText="Edit"
-          // textClass="page-title__hidden-text"
-        >
+        <button className="page-title__edit-button" onClick={handleEditClick}>
           <img
             className="page-title__edit-icon"
             src={editIcon}
             alt="edit icon"
           />
-          {/* <p className="page-title__edit-text">Edit</p> */}
-        </PrimaryButton>
+          <p className="page-title__edit-text">Edit</p>
+        </button>
+        // <PrimaryButton
+        //   buttonExtraClass="page-title__edit-button"
+        //   onClick={handleEditClick}
+        //   // iconExtraClass="page-title__edit-icon"
+        //   // iconSrc={editIcon}
+        //   // iconAlt="edit icon"
+        //   buttonText="Edit"
+        //   // textClass="page-title__hidden-text"
+        // >
+        //   <img
+        //     className="page-title__edit-icon"
+        //     src={editIcon}
+        //     alt="edit icon"
+        //   />
+        //   {/* <p className="page-title__edit-text">Edit</p> */}
+        // </PrimaryButton>
       )}
     </div>
   );
