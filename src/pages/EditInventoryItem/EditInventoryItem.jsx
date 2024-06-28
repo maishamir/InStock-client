@@ -3,7 +3,7 @@ import axios from 'axios';
 import './EditInventoryItem.scss';
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { api_URL } from "../../utils/const";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const EditItemForm = ({ onUpdateItem }) => {
     const { inventoryItemId } = useParams();
@@ -15,6 +15,8 @@ const EditItemForm = ({ onUpdateItem }) => {
         status: 'In Stock',
         quantity: ''
     });
+
+    const navigate = useNavigate();
 
     const [errors, setErrors] = useState({});
     const [categories, setCategories] = useState([]);
@@ -84,6 +86,18 @@ const EditItemForm = ({ onUpdateItem }) => {
             onUpdateItem(response.data);
         } catch (error) {
             console.error('Failed to update inventory item.', error);
+        }
+
+        const confirmSubmit = window.confirm("Save all changes?");
+        if (confirmSubmit) {
+            navigate(`/inventory/${inventoryItemId}`);
+        }
+    };
+
+    const handleCancel = async () => {
+        const confirmCancel = window.confirm("Are you sure you want to leave? Your changes will not be saved.");
+        if (confirmCancel) {
+            navigate(`/inventory/${inventoryItemId}`);
         }
     };
 
@@ -215,7 +229,7 @@ const EditItemForm = ({ onUpdateItem }) => {
                 </section>
                 </section>
                 <div className="edit-item-form__actions">
-                    <button type="button" className="edit-item-form__button edit-item-form__button--cancel"><Link to={`/inventory/${inventoryItemId}`}>Cancel</Link></button>
+                    <button type="button" className="edit-item-form__button edit-item-form__button--cancel" onClick={handleCancel}>Cancel</button>
                     <button type="submit" className="edit-item-form__button edit-item-form__button--submit" onClick={handleSubmit}>Save</button>
                 </div>
             </form>

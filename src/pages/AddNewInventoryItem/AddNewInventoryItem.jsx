@@ -3,7 +3,7 @@ import axios from 'axios';
 import './AddNewInventoryItem.scss';
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { api_URL } from "../../utils/const";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddNewItemForm = ({ onAddItem }) => {
     const [formData, setFormData] = useState({
@@ -14,6 +14,8 @@ const AddNewItemForm = ({ onAddItem }) => {
         status: 'In Stock',
         quantity: ''
     });
+
+    const navigate = useNavigate();
 
     const [errors, setErrors] = useState({});
     const [categories, setCategories] = useState([]);
@@ -81,6 +83,18 @@ const AddNewItemForm = ({ onAddItem }) => {
             });
         } catch (error) {
             console.error('Failed to add inventory item.', error);
+        }
+
+        const confirmSubmit = window.confirm("Add new item?");
+        if (confirmSubmit) {
+            navigate(`/inventory`);
+        }
+    };
+
+    const handleCancel = async () => {
+        const confirmCancel = window.confirm("Are you sure you want to leave? Your changes will not be saved.");
+        if (confirmCancel) {
+            navigate(`/inventory`);
         }
     };
 
@@ -211,7 +225,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                 </section>
                 </section>
                 <div className="add-item-form__actions">
-                    <button type="button" className="add-item-form__button add-item-form__button--cancel"><Link to={`"/inventory"`}>Cancel</Link></button>
+                    <button type="button" className="add-item-form__button add-item-form__button--cancel" onClick={handleCancel}>Cancel</button>
                     <button type="submit" className="add-item-form__button add-item-form__button--submit" onClick={handleSubmit}>+ Add Item</button>
                 </div>
             </form>
