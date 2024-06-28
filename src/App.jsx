@@ -9,6 +9,7 @@ import AddNewItemForm from "./pages/AddNewInventoryItem/AddNewInventoryItem";
 import Footer from "./components/Footer/Footer";
 import "./App.scss";
 import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
+import EditItemForm from "./pages/EditInventoryItem/EditInventoryItem";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
           />
           <Route
             path="/inventory/:inventoryItemId/edit"
-            element={<InventoryItemDetails />}
+            element={<EditItemForm />}
           />
           <Route path="/inventory/new" element={<AddNewItemForm />} />
         </Routes>
