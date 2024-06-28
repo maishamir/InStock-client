@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { api_URL } from "../../utils/const";
 import "./WarehouseDetails.scss";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import DeleteModal from "../../components/DeleteModal/DeleteModal";
 
 function WarehouseDetails() {
   const { warehouseId } = useParams();
@@ -49,7 +48,7 @@ function WarehouseDetails() {
         title={warehouse_name}
         backLink="/"
         showEdit={true}
-        editLink={`/warehouse/${id}`}
+        editLink={`/warehouse/${id}/edit`}
       />
       <article className="warehouse-details__card">
         <div className="warehouse-details__address">
@@ -78,14 +77,6 @@ function WarehouseDetails() {
           </div>
         </div>
       </article>
-      <DeleteModal
-        itemName="soap"
-        itemId="75"
-        itemType="inventory item"
-        route="inventories"
-        typeOfList="inventory list"
-        onDeleteSuccess={fetchWarehouseDetails}
-      />
     </main>
   );
 }

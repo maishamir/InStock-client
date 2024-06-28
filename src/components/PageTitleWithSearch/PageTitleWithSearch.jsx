@@ -9,9 +9,9 @@ function PageTitleWithSearch({ title, editLink, type }) {
       <div className="page-title-search__search-add">
         <SearchField />
         <Link to={editLink}>
-          <button className="page-title-search__add-button">
+          <div className="page-title-search__add-button">
             <p className="page-title-search__add-text">+ Add New {type}</p>
-          </button>
+          </div>
         </Link>
       </div>
     </div>

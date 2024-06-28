@@ -18,14 +18,14 @@ function PageTitle({ backLink, title, showEdit, editLink }) {
       </div>
       {showEdit && (
         <Link to={editLink}>
-          <button className="page-title__edit-button">
+          <div className="page-title__edit-button">
             <img
               className="page-title__edit-icon"
               src={editIcon}
               alt="edit icon"
             />
             <p className="page-title__edit-text">Edit</p>
-          </button>
+          </div>
         </Link>
       )}
     </div>

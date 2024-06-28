@@ -1,0 +1,13 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouse-list {
+    @include page-formatting;
+    &__heading {
+        display: none;
+    }
+
+    .warehouse-item:not(:last-of-type) {
+        @include divider-line;
+    }
+}
