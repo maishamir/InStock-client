@@ -3,52 +3,16 @@
 
 .warehouse-list {
   @include page-formatting;
-}
 
-.warehouse-item {
-  display: grid;
-
-    &__warehouse-name {
-        color: $instock-indigo;
-        @include tablet {
-            white-space: nowrap;
-        }
-    }
-  &__info {
-    &--actions {
-      grid-column: 1/3;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      h4 {
-        display: none;
-        @include tablet {
-          text-align: center;
-        }
-      }
-      @include tablet {
-        grid-column: 5;
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        text-align: center;
-      }
-    }
-  }
-
-  &__label {
+  &__grid {
+    display: grid;
     @include tablet {
-      display: none;
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 2rem;
     }
-  }
-
-  @include tablet {
-    grid-template-columns: repeat(5, 1fr);
-    column-gap: 2rem;
-  }
-
-  @include desktop {
-    column-gap: 5rem;
+    @include desktop {
+      column-gap: 5rem;
+    }
   }
 
   &__header {
@@ -60,7 +24,6 @@
       padding: 0.7rem 2rem;
       background-color: $light-grey;
     }
-
     &-label {
       @include tablet {
         white-space: nowrap;
@@ -74,21 +37,5 @@
   &__icon {
     vertical-align: middle;
     width: 1rem;
-  }
-
-  &__warehouse {
-    @include divider-line;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    padding: 1.5rem;
-    @include tablet {
-      grid-template-rows: 1fr;
-      grid-template-columns: subgrid;
-      align-items: center;
-      grid-column: 1 / 6;
-      padding: 1.2rem;
-    }
-
   }
 }

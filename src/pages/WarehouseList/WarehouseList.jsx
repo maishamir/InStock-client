@@ -18,7 +18,7 @@ function WarehouseList() {
         console.log(data);
         setWarehouseList(data);
       } catch (e) {
-        console.error("Could not fetch list of warehouses: ", err);
+        console.error("Could not fetch list of warehouses: ", e);
       }
     };
     fetchWarehouses();
@@ -27,60 +27,29 @@ function WarehouseList() {
   return (
     <section className="warehouse-list">
       <PageTitleWithSearch title="Warehouses" editLink="#" type="Warehouse" />
-      <div className="warehouse-item">
-        <div className="warehouse-item__header">
-          <h4 className="warehouse-item__header-label">
+      <div className="warehouse-list__grid">
+        <div className="warehouse-list__header">
+          <h4 className="warehouse-list__header-label">
             WAREHOUSE
-              <img src={sortIcon} alt="" className="warehouse-item__icon" />
+            <img src={sortIcon} alt="" className="warehouse-list__icon" />
           </h4>
-          <h4 className="warehouse-item__header-label">
+          <h4 className="warehouse-list__header-label">
             ADDRESS
-              <img src={sortIcon} alt="" className="warehouse-item__icon" />
+            <img src={sortIcon} alt="" className="warehouse-list__icon" />
           </h4>
-          <h4 className="warehouse-item__header-label">
+          <h4 className="warehouse-list__header-label">
             CONTACT NAME
-              <img src={sortIcon} alt="" className="warehouse-item__icon" />
+            <img src={sortIcon} alt="" className="warehouse-list__icon" />
           </h4>
-          <h4 className="warehouse-item__header-label">
+          <h4 className="warehouse-list__header-label">
             CONTACT INFORMATION
-              <img src={sortIcon} alt="" className="warehouse-item__icon" />
+            <img src={sortIcon} alt="" className="warehouse-list__icon" />
           </h4>
-          <h4 className="warehouse-item__header-label warehouse-item__header-label--align">ACTIONS</h4>
+          <h4 className="warehouse-list__header-label warehouse-list__header-label--align">ACTIONS</h4>
         </div>
-        {/* <div className="warehouse-item__warehouse">
-          <div className="warehouse-item__info warehouse-item__info--warehouse">
-            <h4 className="warehouse-item__label">WAREHOUSE </h4>
-            <p>Manhattan</p>
-          </div>
-
-          <div className="warehouse-item__info warehouse-item__info--address">
-            <h4 className="warehouse-item__label">ADDRESS</h4>
-            <p>503 Broadway, New York, USA</p>
-          </div>
-
-          <div className="warehouse-item__info warehouse-item__info--contact">
-            <h4 className="warehouse-item__label">CONTACT NAME</h4>
-            <p>Parmin Aujla</p>
-          </div>
-
-          <div className="warehouse-item__info warehouse-item__info">
-            <h4 className="warehouse-item__label">CONTACT INFORMATION</h4>
-            <div className="warehouse-item__contact-details">
-              <p className="warehouse-item__tel">+1 (629) 444-0129</p>
-              <p className="warehouse-item__email">paujla@instock.com</p>
-            </div>
-          </div>
-
-          <div class="warehouse-item__info warehouse-item__info--actions">
-            <h4 className="warehouse-item__label">ACTIONS</h4>
-            <img src={deleteIcon} alt="" className="warehouse-item__delete" />
-            <img src={editIcon} alt="" className="warehouse-item__edit" />
-          </div>
-        </div> */}
-
-        {warehouseList.map((warehouse) => {
-          return <WarehouseItem key={warehouse.id} warehouse={warehouse} />
-        } )}
+        {warehouseList.map((warehouse) => (
+          <WarehouseItem key={warehouse.id} warehouse={warehouse} />
+        ))}
       </div>
     </section>
   );
