@@ -54,7 +54,7 @@ const AddNewItemForm = ({ onAddItem }) => {
             }
         });
 
-        if (formData.status === 'In Stock' && !formData.quantity) {
+        if (formData.status === 'In Stock' && (!formData.quantity || formData.quantity === '0')) {
             newErrors.quantity = 'Quantity is required when status is In stock.';
         } else if (formData.quantity && isNaN(formData.quantity)) {
             newErrors.quantity = 'Quantity must be a number.';
@@ -144,8 +144,8 @@ const AddNewItemForm = ({ onAddItem }) => {
                             name="category"
                             value={formData.category}
                             onChange={handleChange}
-                            className={`add-item-form__select ${errors.category ? 'add-item-form__select--error' : ''}`}
-                            >
+                            className={`add-item-form__select ${errors.category ? 'add-item-form__select--error' : ''} ${formData.category === '' ? 'add-item-form__select--default' : ''}`}
+                        >
                             <option value="" disabled="disabled" default>Please select</option>
                             {categories.map((category, index) => (
                                 <option key={index} value={category}>{category}</option>
@@ -161,34 +161,32 @@ const AddNewItemForm = ({ onAddItem }) => {
                     <div className="add-item-form__group">
                         <label className="add-item-form__label" htmlFor="status">Status</label>
                         <div className="add-item-form__radio-group">
+                        <input 
+                                type="radio"
+                                id="in-stock"
+                                name="status"
+                                value="In Stock"
+                                checked={formData.status === 'In Stock'}
+                                onChange={handleChange}
+                                className="add-item-form__radio-input"
+                            />
                             <label 
                                 className={`add-item-form__radio-label ${formData.status === 'In Stock' ? 'add-item-form__radio-label--active' : ''}`}
-                                htmlFor="radio"
-                            >
-                                <input 
-                                    type="radio"
-                                    name="status"
-                                    value="In Stock"
-                                    checked={formData.status === 'In Stock'}
-                                    onChange={handleChange}
-                                    className="add-item-form__radio-input"
-                                />
-                                In stock
-                            </label>
+                                htmlFor="in-stock"
+                            >In stock</label>
+                            <input 
+                                type="radio"
+                                id="out-of-stock"
+                                name="status"
+                                value="Out of Stock"
+                                checked={formData.status === 'Out of Stock'}
+                                onChange={handleChange}
+                                className="add-item-form__radio-input"
+                            />
                             <label 
                                 className={`add-item-form__radio-label ${formData.status === 'Out of Stock' ? 'add-item-form__radio-label--active' : ''}`}
-                                htmlFor="radio"
-                            >
-                                <input 
-                                    type="radio"
-                                    name="status"
-                                    value="Out of Stock"
-                                    checked={formData.status === 'Out of Stock'}
-                                    onChange={handleChange}
-                                    className="add-item-form__radio-input"
-                                />
-                                Out of stock
-                            </label>
+                                htmlFor="out-of-stock"
+                            >Out of stock</label>
                         </div>
                         {errors.status && <span className="add-item-form__error-message">{errors.status}</span>}
                     </div>
@@ -212,8 +210,8 @@ const AddNewItemForm = ({ onAddItem }) => {
                             name="warehouse_id"
                             value={formData.warehouse_id}
                             onChange={handleChange}
-                            className={`add-item-form__select ${errors.warehouse_id ? 'add-item-form__select--error' : ''}`}
-                            >
+                            className={`add-item-form__select ${errors.warehouse_id ? 'add-item-form__select--error' : ''} ${formData.warehouse_id === '' ? 'add-item-form__select--default' : ''}`}
+                        >
                             <option value="" disabled="disabled" default>Please select</option>
                             {warehouses.map((warehouse) => (
                                 <option key={warehouse.id} value={warehouse.id}>{warehouse.warehouse_name}</option>

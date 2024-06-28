@@ -65,7 +65,7 @@ const EditItemForm = ({ onUpdateItem }) => {
             }
         });
 
-        if (formData.status === 'In Stock' && !formData.quantity) {
+        if (formData.status === 'In Stock' && (!formData.quantity || formData.quantity === '0')) {
             newErrors.quantity = 'Quantity is required when status is In stock.';
         } else if (formData.quantity && isNaN(formData.quantity)) {
             newErrors.quantity = 'Quantity must be a number.';
@@ -165,34 +165,32 @@ const EditItemForm = ({ onUpdateItem }) => {
                     <div className="edit-item-form__group">
                         <label className="edit-item-form__label" htmlFor="status">Status</label>
                         <div className="edit-item-form__radio-group">
+                            <input 
+                                type="radio"
+                                id="in-stock"
+                                name="status"
+                                value="In Stock"
+                                checked={formData.status === 'In Stock'}
+                                onChange={handleChange}
+                                className="edit-item-form__radio-input"
+                            />
                             <label 
                                 className={`edit-item-form__radio-label ${formData.status === 'In Stock' ? 'edit-item-form__radio-label--active' : ''}`}
-                                htmlFor="radio"
-                            >
-                                <input 
-                                    type="radio"
-                                    name="status"
-                                    value="In Stock"
-                                    checked={formData.status === 'In Stock'}
-                                    onChange={handleChange}
-                                    className="edit-item-form__radio-input"
-                                />
-                                In stock
-                            </label>
+                                htmlFor="in-stock"
+                            >In stock</label>
+                            <input 
+                                type="radio"
+                                id="out-of-stock"
+                                name="status"
+                                value="Out of Stock"
+                                checked={formData.status === 'Out of Stock'}
+                                onChange={handleChange}
+                                className="edit-item-form__radio-input"
+                            />
                             <label 
                                 className={`edit-item-form__radio-label ${formData.status === 'Out of Stock' ? 'edit-item-form__radio-label--active' : ''}`}
-                                htmlFor="radio"
-                            >
-                                <input 
-                                    type="radio"
-                                    name="status"
-                                    value="Out of Stock"
-                                    checked={formData.status === 'Out of Stock'}
-                                    onChange={handleChange}
-                                    className="edit-item-form__radio-input"
-                                />
-                                Out of stock
-                            </label>
+                                htmlFor="out-of-stock"
+                            >Out of stock</label>
                         </div>
                         {errors.status && <span className="edit-item-form__error-message">{errors.status}</span>}
                     </div>
