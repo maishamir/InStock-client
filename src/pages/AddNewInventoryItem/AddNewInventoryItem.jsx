@@ -144,8 +144,8 @@ const AddNewItemForm = ({ onAddItem }) => {
                             name="category"
                             value={formData.category}
                             onChange={handleChange}
-                            className={`add-item-form__select ${errors.category ? 'add-item-form__select--error' : ''}`}
-                            >
+                            className={`add-item-form__select ${errors.category ? 'add-item-form__select--error' : ''} ${formData.category === '' ? 'add-item-form__select--default' : ''}`}
+                        >
                             <option value="" disabled="disabled" default>Please select</option>
                             {categories.map((category, index) => (
                                 <option key={index} value={category}>{category}</option>
@@ -210,8 +210,8 @@ const AddNewItemForm = ({ onAddItem }) => {
                             name="warehouse_id"
                             value={formData.warehouse_id}
                             onChange={handleChange}
-                            className={`add-item-form__select ${errors.warehouse_id ? 'add-item-form__select--error' : ''}`}
-                            >
+                            className={`add-item-form__select ${errors.warehouse_id ? 'add-item-form__select--error' : ''} ${formData.warehouse_id === '' ? 'add-item-form__select--default' : ''}`}
+                        >
                             <option value="" disabled="disabled" default>Please select</option>
                             {warehouses.map((warehouse) => (
                                 <option key={warehouse.id} value={warehouse.id}>{warehouse.warehouse_name}</option>

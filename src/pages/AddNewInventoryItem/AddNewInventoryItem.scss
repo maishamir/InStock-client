@@ -168,6 +168,10 @@
         background-color: $white;
         background-size: 1rem;
         @include text-bodyMedium;
+
+        &--default {
+            color: $slate;
+        }
     }
 
     &__error-message {
@@ -244,7 +248,6 @@
 }
 
 // style placeholder text //
-option:not(:checked),
 input::placeholder,
 textarea::placeholder {
     @include text-bodyMedium;
