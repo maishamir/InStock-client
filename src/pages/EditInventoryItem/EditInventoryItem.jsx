@@ -216,7 +216,7 @@ const EditItemForm = ({ onUpdateItem }) => {
                 </section>
                 <div className="edit-item-form__actions">
                     <button type="button" className="edit-item-form__button edit-item-form__button--cancel"><Link to={`/inventory/${inventoryItemId}`}>Cancel</Link></button>
-                    <button type="submit" className="edit-item-form__button edit-item-form__button--submit">Save</button>
+                    <button type="submit" className="edit-item-form__button edit-item-form__button--submit" onClick={handleSubmit}>Save</button>
                 </div>
             </form>
         </main>

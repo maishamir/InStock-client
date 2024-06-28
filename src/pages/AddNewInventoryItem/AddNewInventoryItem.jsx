@@ -212,7 +212,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                 </section>
                 <div className="add-item-form__actions">
                     <button type="button" className="add-item-form__button add-item-form__button--cancel"><Link to={`"/inventory"`}>Cancel</Link></button>
-                    <button type="submit" className="add-item-form__button add-item-form__button--submit">+ Add Item</button>
+                    <button type="submit" className="add-item-form__button add-item-form__button--submit" onClick={handleSubmit}>+ Add Item</button>
                 </div>
             </form>
         </main>
