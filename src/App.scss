@@ -14,6 +14,15 @@ body {
   padding: 0rem;
   margin: 0rem;
   background-color: $light-grey;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,

@@ -1,9 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./PageTitle.scss";
 import arrowIcon from "../../assets/images/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/images/icons/edit-white-24px.svg";
+import PrimaryButton from "../PrimaryButton/PrimaryButton.jsx";
 
 function PageTitle({ backLink, title, showEdit, editLink }) {
+  const navigate = useNavigate();
+
+  const handleEditClick = (event) => {
+    event.preventDefault();
+    navigate(editLink);
+  };
+
   return (
     <div className="page-title">
       <div className="page-title__container">
@@ -17,16 +25,14 @@ function PageTitle({ backLink, title, showEdit, editLink }) {
         <h1 className="page-title__header">{title}</h1>
       </div>
       {showEdit && (
-        <Link to={editLink}>
-          <button className="page-title__edit-button">
-            <img
-              className="page-title__edit-icon"
-              src={editIcon}
-              alt="edit icon"
-            />
-            <p className="page-title__edit-text">Edit</p>
-          </button>
-        </Link>
+        <button className="page-title__edit-button" onClick={handleEditClick}>
+          <img
+            className="page-title__edit-icon"
+            src={editIcon}
+            alt="edit icon"
+          />
+          <p className="page-title__edit-text">Edit</p>
+        </button>
       )}
     </div>
   );

@@ -1,11 +1,11 @@
-import React from 'react';
-import editIcon from "../../assets/images/icons/edit-24px.svg";
-import { Link } from 'react-router-dom';
-import arrow from "../../assets/images/icons/chevron_right-24px.svg";
+import React from "react";
 import "./WarehouseItem.scss";
-import DeleteModal from "../DeleteModal/DeleteModal"
+import editIcon from "../../assets/images/icons/edit-24px.svg";
+import { Link } from "react-router-dom";
+import arrow from "../../assets/images/icons/chevron_right-24px.svg";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
-function WarehouseItem({ warehouse, fetchWarehouses}) {
+function WarehouseItem({ warehouse, fetchWarehouses }) {
   return (
     <div className="warehouse-item">
       <div className="warehouse-item__info warehouse-item__info--warehouse">
@@ -20,7 +20,9 @@ function WarehouseItem({ warehouse, fetchWarehouses}) {
 
       <div className="warehouse-item__info warehouse-item__info--address">
         <h4 className="warehouse-item__label">ADDRESS</h4>
-        <p>{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
+        <p>
+          {warehouse.address}, {warehouse.city}, {warehouse.country}
+        </p>
       </div>
 
       <div className="warehouse-item__info warehouse-item__info--contact">

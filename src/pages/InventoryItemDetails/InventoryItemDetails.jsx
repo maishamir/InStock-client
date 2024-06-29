@@ -40,9 +40,6 @@ function InventoryItemDetails() {
     quantity,
   } = item;
 
-  // const inStockClassName = "inventory-item__in-stock";
-  // const outOfStockClassName = "inventory-item__out-of-stock";
-
   return (
     <main className="inventory-item">
       <PageTitle

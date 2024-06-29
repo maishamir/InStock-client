@@ -221,8 +221,9 @@
 
 @mixin page-formatting {
   position: relative;
+  z-index: 1;
   background-color: $white;
-  margin: 8.5rem 1rem 2.5rem;
+  margin: 8.5rem 1rem 6rem;
   border-radius: 0.1875rem;
   box-shadow: 0 0.125rem 0.3125rem 0 rgba(19, 24, 44, 0.1);
 
@@ -231,7 +232,7 @@
   }
 
   @include desktop {
-    margin: 5.75rem 8.125rem 8rem;
+    margin: 5.75rem 8.125rem 8.875rem;
   }
 }
 
