@@ -106,11 +106,23 @@ const AddNewItemForm = ({ onAddItem }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === "status" && value === "Out of Stock") {
-      setFormData({ ...formData, status: value, quantity: "" });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    setFormData((prevFormData) => {
+      const updatedFormData = { ...prevFormData, [name]: value };
+      
+      if (name === "status" && value === "Out of Stock") {
+        updatedFormData.quantity = "";
+      }
+      
+      if (errors[name]) {
+        setErrors((prevErrors) => {
+          const updatedErrors = { ...prevErrors };
+          delete updatedErrors[name];
+          return updatedErrors;
+        });
+      }
+
+      return updatedFormData;
+    });
   };
 
   return (
