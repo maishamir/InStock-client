@@ -1,4 +1,3 @@
-
 import PageTitleWithSearch from "../../components/PageTitleWithSearch/PageTitleWithSearch";
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
 import "./InventoryList.scss"
@@ -43,3 +42,4 @@ function InventoryList() {
 }
 
 export default InventoryList;
+

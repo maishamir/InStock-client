@@ -14,12 +14,21 @@ label {
 
 .text-field {
   @include formFields;
+
+  
 }
 
-.text-field.active {
+.text-field:active {
   border-color: $instock-indigo;
 }
 
-.text-field.required {
+.text-field--required {
   border-color: $red;
+}
+
+.error-message{
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    @include text-bodySmall__required
 }

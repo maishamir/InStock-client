@@ -5,7 +5,7 @@ function PrimaryButton({ buttonText }) {
   return (
     <>
       <button className="primary-button">
-        <p>{buttonText}</p>
+        {buttonText}
       </button>
     </>
   );
