@@ -10,7 +10,8 @@
   @include pributtons;
 
   &__text {
-    // @include text-bodySmall;
+    @include text-bodyMedium;
+    color: white;
   }
 }
 

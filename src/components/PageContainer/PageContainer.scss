@@ -1,0 +1,11 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.page-container {
+  @include desktop {
+    flex: 1;
+    max-width: $max-width;
+    margin: auto;
+    position: relative;
+  }
+}

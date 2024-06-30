@@ -1,18 +1,17 @@
 import React from "react";
 import "./SearchField.scss";
 
-function SearchField({ placeholder }) {
+function SearchField() {
   return (
-    <form className="form-group-search">
-      <label htmlFor="searchField"> </label>
+    <div className="search-field">
       <input
+        className="search-field__input"
         type="text"
-        name="searchField"
         id="searchField"
-        placeholder={placeholder}
-        className="search-field"
+        placeholder="Search..."
       />
-    </form>
+      <div className="search-field__icon"></div>
+    </div>
   );
 }
 
