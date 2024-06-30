@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./WarehouseList.scss";
+
 import { api_URL } from "../../utils/const";
-import WarehouseItem from "../../components/WarehouseItem/WarehouseItem";
 import axios from "axios";
 import PageTitleWithSearch from "../../components/PageTitleWithSearch/PageTitleWithSearch";
+import WarehouseItem from "../../components/WarehouseItem/WarehouseItem";
+import sortIcon from "../../assets/images/icons/sort-24px.svg";
 
 function WarehouseList() {
   const [warehouseList, setWarehouseList] = useState([]);
@@ -14,7 +16,7 @@ function WarehouseList() {
       console.log(data);
       setWarehouseList(data);
     } catch (e) {
-      console.error("Could not fetch list of warehouses: ", err);
+      console.error("Could not fetch list of warehouses: ", e);
     }
   };
 
@@ -29,40 +31,36 @@ function WarehouseList() {
         addLink="/warehouse/new"
         type="Warehouse"
       />
-      <header className="warehouse-list__heading">
-        <h4 className="warehouse-list__header-label">WAREHOUSE</h4>
-        <h4 className="warehouse-list__header-label">ADDRESS</h4>
-        <h4 className="warehouse-list__header-label">CONTACT NAME</h4>
-        <h4 className="warehouse-list__header-label">CONTACT INFORMATION</h4>
-      </header>
-
-      {warehouseList.map((warehouse) => {
-        const {
-          address,
-          city,
-          contact_email,
-          contact_name,
-          contact_phone,
-          country,
-          warehouse_name,
-          id,
-        } = warehouse;
-
-        return (
+      <div className="warehouse-list__grid">
+        <div className="warehouse-list__header">
+          <h4 className="warehouse-list__header-label">
+            WAREHOUSE
+            <img src={sortIcon} alt="" className="warehouse-list__icon" />
+          </h4>
+          <h4 className="warehouse-list__header-label">
+            ADDRESS
+            <img src={sortIcon} alt="" className="warehouse-list__icon" />
+          </h4>
+          <h4 className="warehouse-list__header-label">
+            CONTACT NAME
+            <img src={sortIcon} alt="" className="warehouse-list__icon" />
+          </h4>
+          <h4 className="warehouse-list__header-label">
+            CONTACT INFORMATION
+            <img src={sortIcon} alt="" className="warehouse-list__icon" />
+          </h4>
+          <h4 className="warehouse-list__header-label warehouse-list__header-label--align">
+            ACTIONS
+          </h4>
+        </div>
+        {warehouseList.map((warehouse) => (
           <WarehouseItem
-            key={id}
-            address={address}
-            city={city}
-            contact_email={contact_email}
-            contact_name={contact_name}
-            contact_phone={contact_phone}
-            country={country}
-            warehouse_name={warehouse_name}
-            id={id}
+            key={warehouse.id}
+            warehouse={warehouse}
             fetchWarehouses={fetchWarehouses}
           />
-        );
-      })}
+        ))}
+      </div>
     </section>
   );
 }

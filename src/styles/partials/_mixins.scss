@@ -157,6 +157,24 @@
   }
 }
 
+@mixin text-bodySmall__required {
+    font-family: "Titillium Web";
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    font-weight: 400;
+    color: $red;
+  
+    @include tablet {
+      font-size: 0.75rem;
+      line-height: 1.125rem;
+    }
+  
+    @include desktop {
+      font-size: 0.75rem;
+      line-height: 1.125rem;
+    }
+  }
+
 // form fields and buttons //
 
 @mixin formFields {

@@ -55,7 +55,10 @@ const AddNewItemForm = ({ onAddItem }) => {
       }
     });
 
-    if (formData.status === "In Stock" && !formData.quantity) {
+    if (
+      formData.status === "In Stock" &&
+      (!formData.quantity || formData.quantity === "0")
+    ) {
       newErrors.quantity = "Quantity is required when status is In stock.";
     } else if (formData.quantity && isNaN(formData.quantity)) {
       newErrors.quantity = "Quantity must be a number.";
@@ -103,11 +106,23 @@ const AddNewItemForm = ({ onAddItem }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === "status" && value === "Out of Stock") {
-      setFormData({ ...formData, status: value, quantity: "" });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    setFormData((prevFormData) => {
+      const updatedFormData = { ...prevFormData, [name]: value };
+      
+      if (name === "status" && value === "Out of Stock") {
+        updatedFormData.quantity = "";
+      }
+      
+      if (errors[name]) {
+        setErrors((prevErrors) => {
+          const updatedErrors = { ...prevErrors };
+          delete updatedErrors[name];
+          return updatedErrors;
+        });
+      }
+
+      return updatedFormData;
+    });
   };
 
   return (
@@ -171,6 +186,10 @@ const AddNewItemForm = ({ onAddItem }) => {
                   onChange={handleChange}
                   className={`add-item-form__select ${
                     errors.category ? "add-item-form__select--error" : ""
+                  } ${
+                    formData.category === ""
+                      ? "add-item-form__select--default"
+                      : ""
                   }`}
                 >
                   <option value="" disabled="disabled" default>
@@ -200,40 +219,42 @@ const AddNewItemForm = ({ onAddItem }) => {
                   Status
                 </label>
                 <div className="add-item-form__radio-group">
+                  <input
+                    type="radio"
+                    id="in-stock"
+                    name="status"
+                    value="In Stock"
+                    checked={formData.status === "In Stock"}
+                    onChange={handleChange}
+                    className="add-item-form__radio-input"
+                  />
                   <label
                     className={`add-item-form__radio-label ${
                       formData.status === "In Stock"
                         ? "add-item-form__radio-label--active"
                         : ""
                     }`}
-                    htmlFor="radio"
+                    htmlFor="in-stock"
                   >
-                    <input
-                      type="radio"
-                      name="status"
-                      value="In Stock"
-                      checked={formData.status === "In Stock"}
-                      onChange={handleChange}
-                      className="add-item-form__radio-input"
-                    />
                     In stock
                   </label>
+                  <input
+                    type="radio"
+                    id="out-of-stock"
+                    name="status"
+                    value="Out of Stock"
+                    checked={formData.status === "Out of Stock"}
+                    onChange={handleChange}
+                    className="add-item-form__radio-input"
+                  />
                   <label
                     className={`add-item-form__radio-label ${
                       formData.status === "Out of Stock"
                         ? "add-item-form__radio-label--active"
                         : ""
                     }`}
-                    htmlFor="radio"
+                    htmlFor="out-of-stock"
                   >
-                    <input
-                      type="radio"
-                      name="status"
-                      value="Out of Stock"
-                      checked={formData.status === "Out of Stock"}
-                      onChange={handleChange}
-                      className="add-item-form__radio-input"
-                    />
                     Out of stock
                   </label>
                 </div>
@@ -275,6 +296,10 @@ const AddNewItemForm = ({ onAddItem }) => {
                   onChange={handleChange}
                   className={`add-item-form__select ${
                     errors.warehouse_id ? "add-item-form__select--error" : ""
+                  } ${
+                    formData.warehouse_id === ""
+                      ? "add-item-form__select--default"
+                      : ""
                   }`}
                 >
                   <option value="" disabled="disabled" default>
