@@ -1,7 +1,6 @@
 import React from "react";
 import "./TextField.scss";
 import errorIcon from "../../assets/images/icons/error-24px.svg";
-import classNames from "classnames";
 
 function TextField({
   label,
