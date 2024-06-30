@@ -3,9 +3,7 @@
 
 .page-container {
   @include desktop {
-    flex: 1;
     max-width: $max-width;
     margin: auto;
-    position: relative;
   }
 }

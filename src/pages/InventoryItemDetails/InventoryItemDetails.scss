@@ -61,8 +61,11 @@
     width: 50%;
   }
 
+  &__label {
+    margin-bottom: 0.25rem;
+  }
+
   &__text {
     @include text-bodyMedium;
-    margin-top: 0.25rem;
   }
 }
