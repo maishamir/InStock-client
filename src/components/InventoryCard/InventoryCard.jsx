@@ -8,38 +8,38 @@ import StatusTag from "../StatusTag/StatusTag";
 
 function InventoryCard({ inventory, fetchInventory }) {
   return (
-    <div class="inventory-card">
+    <div className="inventory-card">
       <div className="inventory-card__info inventory-card__info--item">
         <h4 className="inventory-card__label">INVENTORY ITEM</h4>
         <Link to={`/inventory/${inventory.id}`}>
-          <p class="inventory-card__item-name">
+          <p className="inventory-card__item-name">
             {inventory.item_name} <img src={arrow} alt="" className="" />
           </p>
         </Link>
       </div>
 
-      <div class="inventory-card__info inventory-card__info--category">
-        <h4 class="inventory-card__label">CATEGORY</h4>
+      <div className="inventory-card__info inventory-card__info--category">
+        <h4 className="inventory-card__label">CATEGORY</h4>
         <p>{inventory.category}</p>
       </div>
 
-      <div class="inventory-card__info inventory-card__info--status">
-        <h4 class="inventory-card__label">STATUS</h4>
+      <div className="inventory-card__info inventory-card__info--status">
+        <h4 className="inventory-card__label">STATUS</h4>
         <StatusTag status={inventory.status} />
       </div>
 
-      <div class="inventory-card__info inventory-card__info--qty">
-        <h4 class="inventory-card__label">QTY</h4>
+      <div className="inventory-card__info inventory-card__info--qty">
+        <h4 className="inventory-card__label">QTY</h4>
         <p>{inventory.quantity}</p>
       </div>
 
-      <div class="inventory-card__info inventory-card__info--warehouse">
-        <h4 class="inventory-card__label">WAREHOUSE</h4>
+      <div className="inventory-card__info inventory-card__info--warehouse">
+        <h4 className="inventory-card__label">WAREHOUSE</h4>
         <p>{inventory.warehouse_name}</p>
       </div>
 
-      <div class="inventory-card__info inventory-card__info--actions">
-        <h4 class="warehouse-card__label">ACTIONS</h4>
+      <div className="inventory-card__info inventory-card__info--actions">
+        <h4 className="warehouse-card__label">ACTIONS</h4>
         <DeleteModal
           itemName={inventory.item_name}
           itemId={inventory.id}

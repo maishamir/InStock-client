@@ -5,7 +5,6 @@ import axios from "axios";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import "./AddWarehouse.scss";
-// import classNames from "classnames";
 import PageTitle from "../../components/PageTitle/PageTitle";
 
 function AddWarehouse() {
