@@ -208,7 +208,7 @@ function AddWarehouse() {
 
         <div className="add-warehouse__buttons">
           <SecondaryButton buttonText="Cancel" />
-          <PrimaryButton type="submit" buttonText="Add Warehouse" />
+          <PrimaryButton type="submit" buttonText="+ Add Warehouse" />
         </div>
       </form>
     </main>

@@ -204,6 +204,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   @include tablet {
     height: 2.375rem;
