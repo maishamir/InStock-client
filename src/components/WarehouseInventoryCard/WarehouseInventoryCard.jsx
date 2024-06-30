@@ -1,9 +1,9 @@
-import editIcon from "../../assets/images/icons/edit-24px.svg";
 import { Link } from "react-router-dom";
 import arrow from "../../assets/images/icons/chevron_right-24px.svg";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import "./WarehouseInventoryCard.scss";
 import StatusTag from "../StatusTag/StatusTag";
+import EditWarehouse from "../../pages/EditWarehouse/EditWarehouse";
 
 function WarehouseInventoryCard({ inventory, fetchInventory }) {
   return (
@@ -42,7 +42,6 @@ function WarehouseInventoryCard({ inventory, fetchInventory }) {
           typeOfList="inventory list"
           onDeleteSuccess={fetchInventory}
         />
-        <img src={editIcon} alt="" />
       </div>
     </div>
   );
