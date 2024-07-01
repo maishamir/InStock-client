@@ -40,8 +40,6 @@ function WarehouseDetails() {
     contact_email,
   } = warehouse;
 
-  console.log(warehouse);
-
   return (
     <main className="warehouse-details">
       <PageTitle
