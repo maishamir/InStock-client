@@ -4,10 +4,15 @@ import { useParams } from "react-router-dom";
 import { api_URL } from "../../utils/const";
 import "./WarehouseDetails.scss";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import WarehouseInventoryList from "../../components/WarehouseInventoryList/WarehouseInventoryList";
 
 function WarehouseDetails() {
+
   const { warehouseId } = useParams();
   const [warehouse, setWarehouse] = useState(null);
+
+  const [inventoryList, setInventoryList] = useState([]);
+
 
   const fetchWarehouseDetails = async () => {
     try {
@@ -24,6 +29,22 @@ function WarehouseDetails() {
     fetchWarehouseDetails();
   }, [warehouseId]);
 
+  
+  const fetchWarehouseInventory = async () => {
+    try {
+      const { data } = await axios.get(`${api_URL}/api/inventories`);
+
+      setInventoryList(data);
+    } catch (e) {
+      console.error("Could not fetch list of inventories: ", e);
+    }
+  };
+
+  useEffect(() => {
+    fetchWarehouseInventory();
+  }, []);
+
+  
   if (!warehouse) {
     return <p>Getting warehouse information</p>;
   }
@@ -77,6 +98,12 @@ function WarehouseDetails() {
           </div>
         </div>
       </article>
+
+      
+       <WarehouseInventoryList
+        inventoryList={inventoryList}
+        fetchWarehouseInventory={fetchWarehouseInventory}
+      /> 
     </main>
   );
 }
