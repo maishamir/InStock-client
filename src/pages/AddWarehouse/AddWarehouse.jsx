@@ -35,8 +35,6 @@ function AddWarehouse() {
 
   const formRef = useRef(null);
 
-
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setValues({
@@ -73,8 +71,6 @@ function AddWarehouse() {
     return Object.values(newErrors).every((error) => !error);
   };
 
- 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -92,8 +88,6 @@ function AddWarehouse() {
       setSuccess(true);
       alert("Form submitted successfully!");
       formRef.current.reset();
-      
-      
     } catch (error) {
       console.error("Failed to create new warehouse:", error);
       setError("Failed to create new warehouse");

@@ -25,14 +25,18 @@ function PageTitle({ backLink, title, showEdit, editLink }) {
         <h1 className="page-title__header">{title}</h1>
       </div>
       {showEdit && (
-        <button className="page-title__edit-button" onClick={handleEditClick}>
+        <PrimaryButton
+          buttonExtraClass="page-title__edit-button"
+          onClick={handleEditClick}
+          buttonText="Edit"
+          textExtraClass="page-title__edit-text"
+        >
           <img
             className="page-title__edit-icon"
             src={editIcon}
             alt="edit icon"
           />
-          <p className="page-title__edit-text">Edit</p>
-        </button>
+        </PrimaryButton>
       )}
     </div>
   );

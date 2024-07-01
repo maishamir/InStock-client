@@ -13,7 +13,7 @@ function TextField({
   id,
   validationType,
 }) {
-  const isEmpty = value.trim() === ""; 
+  const isEmpty = value.trim() === "";
 
   const inputClasses = classNames("text-field", {
     "text-field--error": hasError && isEmpty,
@@ -26,7 +26,7 @@ function TextField({
       case "email":
         return value.includes("@");
       default:
-        return !isEmpty; 
+        return !isEmpty;
     }
   };
 

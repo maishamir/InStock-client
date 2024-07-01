@@ -6,6 +6,11 @@
   background-color: $instock-indigo;
   color: $white;
   @include pributtons;
+
+  &__text {
+    @include text-bodyMedium;
+    color: white;
+  }
 }
 
 .primary-button:hover {

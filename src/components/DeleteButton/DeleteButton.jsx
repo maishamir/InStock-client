@@ -5,7 +5,7 @@ function DeleteButton({ buttonText, onClick }) {
   return (
     <>
       <button className="delete-button" onClick={onClick}>
-        <p>{buttonText}</p>
+        {buttonText}
       </button>
     </>
   );
