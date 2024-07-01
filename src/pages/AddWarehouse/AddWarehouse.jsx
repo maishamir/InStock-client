@@ -94,10 +94,20 @@ function AddWarehouse() {
     }
   };
 
+  const handleCancel = async () => {
+    const confirmCancel = window.confirm(
+      "Are you sure you want to leave? Your changes will not be saved."
+    );
+    if (confirmCancel) {
+      navigate(`/`);
+    }
+  };
+
   return (
     <main className="add-warehouse">
       <div>
-        <PageTitle title="Add New Warehouse" />
+        <PageTitle title="Add New Warehouse" 
+        backLink="/"/>
       </div>
 
       <form
@@ -201,7 +211,7 @@ function AddWarehouse() {
         </div>
 
         <div className="add-warehouse__buttons">
-          <SecondaryButton buttonText="Cancel" />
+          <SecondaryButton buttonText="Cancel" onClick={handleCancel} />
           <PrimaryButton type="submit" buttonText="+ Add Warehouse" />
         </div>
       </form>

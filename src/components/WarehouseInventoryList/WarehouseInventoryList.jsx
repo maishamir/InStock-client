@@ -3,20 +3,9 @@ import WarehouseInventoryCard from '../WarehouseInventoryCard/WarehouseInventory
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
 import '../WarehouseInventoryList/WarehouseInventoryList.scss'
 
-function WarehouseInventoryList({inventoryList, fetchWarehouseInventory }) {
+function WarehouseInventoryList({inventoryList, warehouse, fetchWarehouseInventory }) {
     
-//     const fetchInventory = async () => {
-//     try {
-//       const { data } = await axios.get(`${api_URL}/api/inventories`);
-//       setInventoryList(data);
-//     } catch (e) {
-//       console.error("Could not fetch list of inventories: ", e);
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchInventory();
-//   }, []);
+  
 
   return (
     <section className="warehouse-inventory-list">
@@ -47,6 +36,7 @@ function WarehouseInventoryList({inventoryList, fetchWarehouseInventory }) {
               key={inventory.id}
               inventory={inventory}
               fetchWarehouseInventory={fetchWarehouseInventory}
+              warehouse = {warehouse}
             />
           );
         })}
