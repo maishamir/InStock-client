@@ -20,6 +20,7 @@
   }
 
   &__input {
+
     flex: 1;
     outline: none;
     height: 100%;
@@ -34,5 +35,6 @@
     background: url("/src/assets/images/icons/search-24px.svg") no-repeat;
     width: 1.5rem;
     height: 1.5rem;
+   
   }
 }

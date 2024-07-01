@@ -3,9 +3,10 @@ import arrow from "../../assets/images/icons/chevron_right-24px.svg";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import "./WarehouseInventoryCard.scss";
 import StatusTag from "../StatusTag/StatusTag";
+import editIcon from "../../assets/images/icons/edit-24px.svg";
 import EditWarehouse from "../../pages/EditWarehouse/EditWarehouse";
 
-function WarehouseInventoryCard({ inventory, fetchInventory }) {
+function WarehouseInventoryCard({ warehouse, inventory, fetchInventory }) {
   return (
     <div className="warehouse-inventory-card">
       <div className="warehouse-inventory-card__info warehouse-inventory-card__info--item">
@@ -42,6 +43,9 @@ function WarehouseInventoryCard({ inventory, fetchInventory }) {
           typeOfList="inventory list"
           onDeleteSuccess={fetchInventory}
         />
+         <Link to={`/warehouse/${warehouse.id}/edit`}>
+          <img src={editIcon} alt="" className="warehouse-item__edit" />
+        </Link>
       </div>
     </div>
   );
