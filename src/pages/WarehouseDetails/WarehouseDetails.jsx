@@ -43,8 +43,6 @@ function WarehouseDetails() {
     contact_email,
   } = warehouse;
 
-  console.log(warehouse);
-
   return (
     <PageContainer>
       <section className="warehouse-details">
