@@ -19,6 +19,8 @@
   }
 
   &__item-name {
+    display: flex;
+    align-items: center;
     color: $instock-indigo;
     @include tablet {
         white-space: nowrap
