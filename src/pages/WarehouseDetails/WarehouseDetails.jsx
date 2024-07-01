@@ -6,7 +6,6 @@ import "./WarehouseDetails.scss";
 import PageContainer from "../../components/PageContainer/PageContainer";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import WarehouseInventoryList from "../../components/WarehouseInventoryList/WarehouseInventoryList";
-import WarehouseInventoryList from "../../components/WarehouseInventoryList/WarehouseInventoryList";
 
 function WarehouseDetails() {
 
@@ -47,7 +46,7 @@ function WarehouseDetails() {
   }, []);
 
   
-  // get list of inventory here; pass it to the WarehouseInventoryList along with the function (function needs to be separate from useEffect, as done above)
+
   if (!warehouse) {
     return <p>Getting warehouse information</p>;
   }
@@ -100,13 +99,15 @@ function WarehouseDetails() {
             </div>
           </div>
         </article>
-      </section>
-
-      
+          
        <WarehouseInventoryList
         inventoryList={inventoryList}
         fetchWarehouseInventory={fetchWarehouseInventory}
+        warehouse = {warehouse}
       /> 
+      </section>
+
+    
     </PageContainer>
   );
 }

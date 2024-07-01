@@ -3,7 +3,7 @@ import WarehouseInventoryCard from '../WarehouseInventoryCard/WarehouseInventory
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
 import '../WarehouseInventoryList/WarehouseInventoryList.scss'
 
-function WarehouseInventoryList({inventoryList, fetchWarehouseInventory }) {
+function WarehouseInventoryList({inventoryList, warehouse, fetchWarehouseInventory }) {
     
   
 
@@ -36,6 +36,7 @@ function WarehouseInventoryList({inventoryList, fetchWarehouseInventory }) {
               key={inventory.id}
               inventory={inventory}
               fetchWarehouseInventory={fetchWarehouseInventory}
+              warehouse = {warehouse}
             />
           );
         })}
