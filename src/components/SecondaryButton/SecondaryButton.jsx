@@ -5,7 +5,7 @@ function SecondaryButton({ buttonText, onClick }) {
   return (
     <>
       <button className="secondary-button" onClick={onClick}>
-        <p>{buttonText}</p>
+        {buttonText}
       </button>
     </>
   );

@@ -3,7 +3,9 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { api_URL } from "../../utils/const";
 import "./WarehouseDetails.scss";
+import PageContainer from "../../components/PageContainer/PageContainer";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import WarehouseInventoryList from "../../components/WarehouseInventoryList/WarehouseInventoryList";
 import WarehouseInventoryList from "../../components/WarehouseInventoryList/WarehouseInventoryList";
 
 function WarehouseDetails() {
@@ -45,6 +47,7 @@ function WarehouseDetails() {
   }, []);
 
   
+  // get list of inventory here; pass it to the WarehouseInventoryList along with the function (function needs to be separate from useEffect, as done above)
   if (!warehouse) {
     return <p>Getting warehouse information</p>;
   }
@@ -61,50 +64,50 @@ function WarehouseDetails() {
     contact_email,
   } = warehouse;
 
-  console.log(warehouse);
-
   return (
-    <main className="warehouse-details">
-      <PageTitle
-        title={warehouse_name}
-        backLink="/"
-        showEdit={true}
-        editLink={`/warehouse/${id}/edit`}
-      />
-      <article className="warehouse-details__card">
-        <div className="warehouse-details__address">
-          <h4>WAREHOUSE ADDRESS:</h4>
-          <p className="warehouse-details__text">
-            {address}, <br className="warehouse-details__break" />
-            {city}, {country}
-          </p>
-        </div>
-        <div className="warehouse-details__contact-container">
-          <div className="warehouse-details__contact warehouse-details__contact-name">
-            <h4>CONTACT NAME:</h4>
+    <PageContainer>
+      <section className="warehouse-details">
+        <PageTitle
+          title={warehouse_name}
+          backLink="/"
+          showEdit={true}
+          editLink={`/warehouse/${id}/edit`}
+        />
+        <article className="warehouse-details__card">
+          <div className="warehouse-details__address">
+            <h4>WAREHOUSE ADDRESS:</h4>
             <p className="warehouse-details__text">
-              {contact_name}
-              <br />
-              {contact_position}
+              {address}, <br className="warehouse-details__break" />
+              {city}, {country}
             </p>
           </div>
-          <div className="warehouse-details__contact">
-            <h4>CONTACT INFORMATION:</h4>
-            <p className="warehouse-details__text">
-              {contact_phone}
-              <br />
-              {contact_email}
-            </p>
+          <div className="warehouse-details__contact-container">
+            <div className="warehouse-details__contact warehouse-details__contact-name">
+              <h4>CONTACT NAME:</h4>
+              <p className="warehouse-details__text">
+                {contact_name}
+                <br />
+                {contact_position}
+              </p>
+            </div>
+            <div className="warehouse-details__contact">
+              <h4>CONTACT INFORMATION:</h4>
+              <p className="warehouse-details__text">
+                {contact_phone}
+                <br />
+                {contact_email}
+              </p>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </section>
 
       
        <WarehouseInventoryList
         inventoryList={inventoryList}
         fetchWarehouseInventory={fetchWarehouseInventory}
       /> 
-    </main>
+    </PageContainer>
   );
 }
 

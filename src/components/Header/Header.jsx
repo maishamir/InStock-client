@@ -1,18 +1,26 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo/InStock-Logo.svg";
 import "./Header.scss";
 
 function Header() {
+  const location = useLocation();
+  const isActive =
+    location.pathname === "/" || location.pathname.startsWith("/warehouse");
+
+  const statusClass = isActive ? "active" : "";
+
+  console.log(isActive);
+
   return (
     <header className="header">
       <div className="header__container">
-        <Link className="header__logo-link" to={"/"}>
+        <Link className="header__logo-link" to="/">
           <img src={logo} alt="instock logo" className="header__logo-icon" />
         </Link>
         <nav className="header__nav">
           <ul className="header__nav-list">
             <li className="header__nav-button">
-              <NavLink className="header__nav-link" to="/">
+              <NavLink className={`header__nav-link ${statusClass}`} to={"/"}>
                 Warehouses
               </NavLink>
             </li>

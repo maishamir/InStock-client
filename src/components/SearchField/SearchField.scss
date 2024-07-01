@@ -2,17 +2,37 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-label {
-  @include text-label;
-}
-
 .search-field {
-  background: url("/src/assets/images/icons/search-24px.svg") no-repeat right
-    center;
-
+  display: flex;
+  align-items: center;
   @include formFields;
-}
 
-.search-field.active {
-  border-color: $instock-indigo;
+  @include tablet {
+    width: 11.5625rem;
+  }
+
+  @include desktop {
+    width: 17.125rem;
+  }
+
+  &:focus-within {
+    border-color: $instock-indigo;
+  }
+
+  &__input {
+    flex: 1;
+    outline: none;
+    height: 100%;
+    border: none;
+
+    &.active {
+      border-color: $instock-indigo;
+    }
+  }
+
+  &__icon {
+    background: url("/src/assets/images/icons/search-24px.svg") no-repeat;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }

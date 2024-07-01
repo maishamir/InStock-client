@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./PageTitleWithSearch.scss";
 import SearchField from "../SearchField/SearchField.jsx";
+import PrimaryButton from "../PrimaryButton/PrimaryButton.jsx";
 
 function PageTitleWithSearch({ title, addLink, type }) {
   const navigate = useNavigate();
@@ -15,12 +16,10 @@ function PageTitleWithSearch({ title, addLink, type }) {
       <h1 className="page-title-search__header">{title}</h1>
       <div className="page-title-search__search-add">
         <SearchField />
-        <button
-          className="page-title-search__add-button"
+        <PrimaryButton
           onClick={handleAddClick}
-        >
-          <p className="page-title-search__add-text">+ Add New {type}</p>
-        </button>
+          buttonText={`+ Add New ${type}`}
+        />
       </div>
     </div>
   );
