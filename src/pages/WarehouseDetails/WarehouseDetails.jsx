@@ -5,6 +5,7 @@ import { api_URL } from "../../utils/const";
 import "./WarehouseDetails.scss";
 import PageContainer from "../../components/PageContainer/PageContainer";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import WarehouseInventoryList from "../../components/WarehouseInventoryList/WarehouseInventoryList";
 
 function WarehouseDetails() {
   const { warehouseId } = useParams();
@@ -25,6 +26,7 @@ function WarehouseDetails() {
     fetchWarehouseDetails();
   }, [warehouseId]);
 
+  // get list of inventory here; pass it to the WarehouseInventoryList along with the function (function needs to be separate from useEffect, as done above)
   if (!warehouse) {
     return <p>Getting warehouse information</p>;
   }

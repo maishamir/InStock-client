@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./WarehouseList.scss";
-
 import { api_URL } from "../../utils/const";
 import axios from "axios";
 import PageTitleWithSearch from "../../components/PageTitleWithSearch/PageTitleWithSearch";
