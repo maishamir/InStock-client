@@ -76,6 +76,11 @@ const AddNewItemForm = ({ onAddItem }) => {
       return;
     }
 
+    const confirmSubmit = window.confirm("Add new item?");
+    if (confirmSubmit) {
+      navigate(`/inventory`);
+    }
+
     try {
       const response = await axios.post(`${api_URL}/api/inventories`, formData);
       onAddItem(response.data);
@@ -89,11 +94,6 @@ const AddNewItemForm = ({ onAddItem }) => {
       });
     } catch (error) {
       console.error("Failed to add inventory item.", error);
-    }
-
-    const confirmSubmit = window.confirm("Add new item?");
-    if (confirmSubmit) {
-      navigate(`/inventory`);
     }
   };
 

@@ -89,6 +89,11 @@ const EditItemForm = ({ onUpdateItem }) => {
       return;
     }
 
+    const confirmSubmit = window.confirm("Save all changes?");
+    if (confirmSubmit) {
+      navigate(`/inventory/${inventoryItemId}`);
+    }
+
     try {
       const response = await axios.put(
         `${api_URL}/api/inventories/${inventoryItemId}`,
@@ -99,10 +104,6 @@ const EditItemForm = ({ onUpdateItem }) => {
       console.error("Failed to update inventory item.", error);
     }
 
-    const confirmSubmit = window.confirm("Save all changes?");
-    if (confirmSubmit) {
-      navigate(`/inventory/${inventoryItemId}`);
-    }
   };
 
   const handleCancel = async () => {
