@@ -22,6 +22,7 @@
     color: $instock-indigo;
     @include tablet {
       white-space: nowrap;
+      margin-left: 1rem;
     }
   }
 
