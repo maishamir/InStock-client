@@ -104,6 +104,7 @@ const EditItemForm = ({ onUpdateItem }) => {
       console.error("Failed to update inventory item.", error);
     }
 
+    location.reload(true);
   };
 
   const handleCancel = async () => {
