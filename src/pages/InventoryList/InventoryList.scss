@@ -8,7 +8,7 @@
         display: grid;
         @include tablet {
             grid-template-columns: repeat(6, 1fr);
-            gap: 2rem;
+            column-gap: 2rem;
         }
     }
 
