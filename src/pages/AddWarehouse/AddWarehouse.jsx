@@ -7,6 +7,7 @@ import "./AddWarehouse.scss";
 import PageContainer from "../../components/PageContainer/PageContainer";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
 
 function AddWarehouse() {
   const [values, setValues] = useState({
@@ -19,6 +20,8 @@ function AddWarehouse() {
     contact_phone: "",
     contact_email: "",
   });
+
+  const navigate = useNavigate();
 
   const [error, setError] = useState({
     warehouse_name: false,
@@ -79,6 +82,13 @@ function AddWarehouse() {
       return;
     }
 
+    const confirmSubmit = window.confirm("Add new warehouse?");
+    if (confirmSubmit) {
+      navigate(`/warehouse`);
+    } else {
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:8080/api/warehouses",
@@ -91,6 +101,8 @@ function AddWarehouse() {
       console.error("Failed to create new warehouse:", error);
       setError("Failed to create new warehouse");
     }
+
+    location.reload(true);
   };
 
   const handleCancel = async () => {
@@ -98,8 +110,10 @@ function AddWarehouse() {
       "Are you sure you want to leave? Your changes will not be saved."
     );
     if (confirmCancel) {
-      navigate(`/`);
+      navigate(`/warehouse`);
     }
+
+    location.reload(true);
   };
 
   return (
