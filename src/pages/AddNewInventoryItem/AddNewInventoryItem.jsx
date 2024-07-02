@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AddNewInventoryItem.scss";
+import PageContainer from "../../components/PageContainer/PageContainer";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { api_URL } from "../../utils/const";
 import { useNavigate } from "react-router-dom";
@@ -108,11 +109,11 @@ const AddNewItemForm = ({ onAddItem }) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => {
       const updatedFormData = { ...prevFormData, [name]: value };
-      
+
       if (name === "status" && value === "Out of Stock") {
         updatedFormData.quantity = "";
       }
-      
+
       if (errors[name]) {
         setErrors((prevErrors) => {
           const updatedErrors = { ...prevErrors };
@@ -126,7 +127,7 @@ const AddNewItemForm = ({ onAddItem }) => {
   };
 
   return (
-    <main>
+    <PageContainer>
       <form className="add-item-form" onSubmit={handleSubmit}>
         <PageTitle
           className="add-item-form__title"
@@ -337,7 +338,7 @@ const AddNewItemForm = ({ onAddItem }) => {
           </button>
         </div>
       </form>
-    </main>
+    </PageContainer>
   );
 };
 

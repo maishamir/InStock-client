@@ -29,7 +29,7 @@ function DeleteModal({
 
   const deleteItem = async () => {
     const confirmed = window.confirm(
-      `Are you sure you want to delete ${itemName} ${itemType}?`
+      `Are you sure you want to permanently delete ${itemName} ${itemType}? You won't be able to undo this action.`
     );
 
     if (confirmed) {
