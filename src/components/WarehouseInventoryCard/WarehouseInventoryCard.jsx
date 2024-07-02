@@ -48,6 +48,7 @@ function WarehouseInventoryCard({
         />
         <Link to={`/warehouse/${warehouse.id}/edit`}>
           <img src={editIcon} alt="" className="warehouse-item__edit" />
+
         </Link>
       </div>
     </div>
