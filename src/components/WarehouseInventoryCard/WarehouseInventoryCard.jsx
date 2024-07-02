@@ -47,7 +47,7 @@ function WarehouseInventoryCard({
           onDeleteSuccess={fetchWarehouseInventory}
         />
         <Link to={`/warehouse/${warehouse.id}/edit`}>
-          <img src={editIcon} alt="" className="warehouse-item__edit" />
+          <img src={editIcon} alt="This is an edit icon" className="warehouse-item__edit" />
         </Link>
       </div>
     </div>

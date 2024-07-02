@@ -1,6 +1,5 @@
 import TextField from "../../components/TextField/TextField";
 import { useState, useRef } from "react";
-import { api_URL } from "../../utils/const";
 import axios from "axios";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";

@@ -49,7 +49,7 @@ function WarehouseInventoryList({
           </h4>
         </div>
         {inventoryList.map((inventory) => {
-          console.log(inventory); 
+          
           return (
             <WarehouseInventoryCard
               key={inventory.id}
