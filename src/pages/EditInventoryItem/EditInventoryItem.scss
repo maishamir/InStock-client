@@ -138,6 +138,9 @@
         font-size: .75rem;
         line-height: 1.125rem;
         color: $red;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
     }
 
     &__actions {

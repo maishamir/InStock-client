@@ -4,7 +4,6 @@ import editIcon from "../../assets/images/icons/edit-24px.svg";
 import { Link } from "react-router-dom";
 import arrow from "../../assets/images/icons/chevron_right-24px.svg";
 import DeleteModal from "../DeleteModal/DeleteModal";
-import EditWarehouse from "../../pages/EditWarehouse/EditWarehouse";
 
 function WarehouseItem({ warehouse, fetchWarehouses }) {
   return (

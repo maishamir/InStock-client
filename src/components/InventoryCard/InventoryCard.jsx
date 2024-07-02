@@ -1,4 +1,3 @@
-
 import editIcon from "../../assets/images/icons/edit-24px.svg";
 import { Link } from "react-router-dom";
 import arrow from "../../assets/images/icons/chevron_right-24px.svg";
@@ -39,7 +38,7 @@ function InventoryCard({ inventory, fetchInventory }) {
       </div>
 
       <div className="inventory-card__info inventory-card__info--actions">
-        <h4 className="warehouse-card__label">ACTIONS</h4>
+        <h4 className="inventory-card__label">ACTIONS</h4>
         <DeleteModal
           itemName={inventory.item_name}
           itemId={inventory.id}
@@ -48,7 +47,9 @@ function InventoryCard({ inventory, fetchInventory }) {
           typeOfList="inventory list"
           onDeleteSuccess={fetchInventory}
         />
-        <img src={editIcon} alt="" />
+        <Link to={`/inventory/${inventory.id}/edit`}>
+          <img src={editIcon} alt="" className="inventory-item__edit" />
+        </Link>
       </div>
     </div>
   );

@@ -2,12 +2,16 @@
 @use "../../styles/partials/mixins" as *;
 
 .warehouse-inventory-card {
-    @include divider-line;
+  @include divider-line;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
   padding: 1.5rem;
   column-gap: 1.5rem;
+
+  &:hover {
+    background-color: rgba(46, 102, 229, 0.07);
+  }
 
   @include tablet {
     grid-template-rows: 1fr;
@@ -23,7 +27,8 @@
     align-items: center;
     color: $instock-indigo;
     @include tablet {
-        white-space: nowrap
+        white-space: nowrap;
+        margin-left: 1rem;
     }
   }
   &__info {
@@ -87,7 +92,7 @@
 
   &__label {
     @include tablet {
-        display: none;
+      display: none;
     }
   }
 }

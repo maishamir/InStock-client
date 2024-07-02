@@ -9,8 +9,6 @@ function Header() {
 
   const statusClass = isActive ? "active" : "";
 
-  
-
   return (
     <header className="header">
       <div className="header__container">

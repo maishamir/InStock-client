@@ -6,7 +6,6 @@
 
   &__card {
     padding: 1rem 1.5rem;
-    @include divider-line;
 
     @include tablet {
       display: flex;
