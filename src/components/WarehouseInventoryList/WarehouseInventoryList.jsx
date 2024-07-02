@@ -24,7 +24,7 @@ function WarehouseInventoryList({inventoryList, warehouse, fetchWarehouseInvento
             <img src={sortIcon} alt="" className="warehouse-inventory-list__icon" />
           </h4>
           <h4 className="warehouse-inventory-list__header-label">
-            QTY <img src={sortIcon} alt="" className="warehouse-inventory-list__icon" />
+            QUANTITY <img src={sortIcon} alt="" className="warehouse-inventory-list__icon" />
           </h4>
           <h4 className="warehouse-inventory-list__header-label warehouse-inventory-list__header-label--align">
             ACTIONS
