@@ -37,6 +37,7 @@ function DeleteModal({
         alert(`Successfully deleted ${itemName} ${itemType}`);
         closeModal();
         onDeleteSuccess();
+        location.reload(true);
       } catch (error) {
         alert(`Unable to delete ${itemType}`);
       }
