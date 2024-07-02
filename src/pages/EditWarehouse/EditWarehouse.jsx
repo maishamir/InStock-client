@@ -126,7 +126,7 @@ function EditWarehouse() {
     <PageContainer>
       <section className="add-warehouse">
         <div>
-          <PageTitle title="Edit Warehouse" />
+          <PageTitle title="Edit Warehouse" backLink={`/warehouse/${warehouseId}`} />
         </div>
 
         <form
