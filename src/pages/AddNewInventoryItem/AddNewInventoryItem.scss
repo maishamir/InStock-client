@@ -158,7 +158,7 @@
   &__textarea {
     height: 7rem;
     resize: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem 0rem;
   }
 
   &__select {
@@ -179,6 +179,9 @@
     font-size: 0.75rem;
     line-height: 1.125rem;
     color: $red;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 
   &__actions {

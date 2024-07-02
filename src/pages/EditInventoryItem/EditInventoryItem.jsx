@@ -5,6 +5,7 @@ import PageContainer from "../../components/PageContainer/PageContainer";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { api_URL } from "../../utils/const";
 import { useNavigate, useParams } from "react-router-dom";
+import errorIcon from "../../assets/images/icons/error-24px.svg";
 
 const EditItemForm = ({ onUpdateItem }) => {
   const { inventoryItemId } = useParams();
@@ -164,6 +165,7 @@ const EditItemForm = ({ onUpdateItem }) => {
                   />
                   {errors.item_name && (
                     <span className="edit-item-form__error-message">
+                       <img src={errorIcon} alt="error-icon"/>
                       {errors.item_name}
                     </span>
                   )}
@@ -188,6 +190,7 @@ const EditItemForm = ({ onUpdateItem }) => {
                   />
                   {errors.description && (
                     <span className="edit-item-form__error-message">
+                       <img src={errorIcon} alt="error-icon"/>
                       {errors.description}
                     </span>
                   )}
@@ -215,6 +218,7 @@ const EditItemForm = ({ onUpdateItem }) => {
                   </select>
                   {errors.category && (
                     <span className="edit-item-form__error-message">
+                       <img src={errorIcon} alt="error-icon"/>
                       {errors.category}
                     </span>
                   )}
@@ -272,6 +276,7 @@ const EditItemForm = ({ onUpdateItem }) => {
                   </div>
                   {errors.status && (
                     <span className="edit-item-form__error-message">
+                       <img src={errorIcon} alt="error-icon"/>
                       {errors.status}
                     </span>
                   )}
@@ -293,6 +298,7 @@ const EditItemForm = ({ onUpdateItem }) => {
                     />
                     {errors.quantity && (
                       <span className="edit-item-form__error-message">
+                        <img src={errorIcon} alt="error-icon"/>
                         {errors.quantity}
                       </span>
                     )}
@@ -324,6 +330,7 @@ const EditItemForm = ({ onUpdateItem }) => {
                   </select>
                   {errors.warehouse_id && (
                     <span className="edit-item-form__error-message">
+                       <img src={errorIcon} alt="error-icon"/>
                       {errors.warehouse_id}
                     </span>
                   )}
