@@ -23,7 +23,8 @@
     align-items: center;
     color: $instock-indigo;
     @include tablet {
-        white-space: nowrap
+        white-space: nowrap;
+        margin-left: 1rem
     }
   }
   &__info {
