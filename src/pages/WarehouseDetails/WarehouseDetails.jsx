@@ -34,7 +34,6 @@ function WarehouseDetails() {
       const data = await axios.get(
         `${api_URL}/api/warehouses/${warehouseId}/inventories`
       );
-      console.log(data.data);
       setInventoryList(Array.isArray(data.data) ? data.data : []);
     } catch (e) {
       console.error("Could not fetch list of inventories: ", e);

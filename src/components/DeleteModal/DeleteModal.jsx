@@ -17,7 +17,6 @@ function DeleteModal({
   onDeleteSuccess,
 }) {
   const [modalIsOpen, setIsOpen] = useState(false);
-  console.log;
 
   function openModal() {
     setIsOpen(true);
