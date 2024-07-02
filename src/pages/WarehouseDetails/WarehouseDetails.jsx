@@ -8,13 +8,11 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import WarehouseInventoryList from "../../components/WarehouseInventoryList/WarehouseInventoryList";
 
 function WarehouseDetails() {
-
   const { warehouseId } = useParams();
- 
+
   const [warehouse, setWarehouse] = useState(null);
 
   const [inventoryList, setInventoryList] = useState([]);
-
 
   const fetchWarehouseDetails = async () => {
     try {
@@ -31,12 +29,13 @@ function WarehouseDetails() {
     fetchWarehouseDetails();
   }, [warehouseId]);
 
-  
   const fetchWarehouseInventory = async () => {
     try {
-      const  {data}  = await axios.get(`${api_URL}/api/inventories/${warehouseId}`);
-      console.log(data)
-      setInventoryList(Array.isArray(data) ? data : []);
+      const data = await axios.get(
+        `${api_URL}/api/warehouses/${warehouseId}/inventories`
+      );
+      console.log(data.data);
+      setInventoryList(Array.isArray(data.data) ? data.data : []);
     } catch (e) {
       console.error("Could not fetch list of inventories: ", e);
     }
@@ -47,8 +46,6 @@ function WarehouseDetails() {
       fetchWarehouseInventory();
     }
   }, [warehouseId]);
-
-  
 
   if (!warehouse) {
     return <p>Getting warehouse information</p>;
@@ -65,20 +62,6 @@ function WarehouseDetails() {
     contact_phone,
     contact_email,
   } = warehouse;
-
-  
-
-  // console.log("warehouseId:", warehouseId);
-  // console.log("inventoryList:", inventoryList);
-
-  // const filteredList = Array.isArray(inventoryList)
-  //   ? inventoryList.filter(inventoryItem => {
-  //       console.log("Comparing:", inventoryItem.warehouseId, "with", warehouseId);
-  //       return inventoryItem.warehouseId === warehouseId;
-  //     })
-  //   : [];
-
-  // console.log(filteredList)
 
   return (
     <PageContainer>
@@ -116,15 +99,13 @@ function WarehouseDetails() {
             </div>
           </div>
         </article>
-          
-       <WarehouseInventoryList
-        inventoryList={inventoryList}
-        fetchWarehouseInventory={fetchWarehouseInventory}
-        warehouse = {warehouse}
-      /> 
-      </section>
 
-    
+        <WarehouseInventoryList
+          inventoryList={inventoryList}
+          fetchWarehouseInventory={fetchWarehouseInventory}
+          warehouse={warehouse}
+        />
+      </section>
     </PageContainer>
   );
 }

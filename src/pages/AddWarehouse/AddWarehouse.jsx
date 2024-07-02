@@ -62,7 +62,7 @@ function AddWarehouse() {
       country: !country,
       contact_name: !contact_name,
       contact_position: !contact_position,
-      contact_phone: contact_phone.length !== 10,
+      contact_phone: !contact_phone.length ,
       contact_email: !contact_email.includes("@"),
     };
 
@@ -200,7 +200,7 @@ function AddWarehouse() {
             <TextField
               label="Email"
               name="contact_email"
-              placeholder="xxxxx@gmail.com"
+              placeholder="Johndoe@gmail.com"
               value={values.contact_email}
               onChange={handleInputChange}
               required={true}
