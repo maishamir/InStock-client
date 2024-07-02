@@ -81,5 +81,6 @@ function WarehouseInventoryList({
     </section>
   );
 }
+}
 
 export default WarehouseInventoryList;
