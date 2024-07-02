@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import WarehouseInventoryCard from '../WarehouseInventoryCard/WarehouseInventoryCard';
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
-import '../WarehouseInventoryList/WarehouseInventoryList.scss'
+import '../WarehouseInventoryList/WarehouseInventoryList.scss';
+import axios from 'axios';
+import { api_URL } from '../../utils/const';
 
-function WarehouseInventoryList({inventoryList, warehouse, fetchWarehouseInventory }) {
+function WarehouseInventoryList({warehouse, fetchWarehouseInventory }) {
     
-  
+  const [inventoryList, setInventoryList] = useState([]);
+
+  const fetchInventory = async() => {
+    try {
+      const {data} = await axios.get(`${api_URL}/api/warehouses/${warehouse.id}/inventories`);
+      setInventoryList(data);
+    } catch (e) {
+      console.error(`Could not fetch inventory for warehouse with ID ${warehouse.id}: `, e);
+    }
+  };
+
+  useEffect(() => {
+    fetchInventory();
+  }, [warehouse.id]);
 
   return (
     <section className="warehouse-inventory-list">
