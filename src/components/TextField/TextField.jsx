@@ -19,10 +19,18 @@ function TextField({
     "text-field--error": hasError && isEmpty,
   });
 
+
+  function formatPhoneNumber(phoneNumber) {
+    const phonePattern = /^\+(\d{1,2})\s?\((\d{3})\)\s?(\d{3})-(\d{4})$/;
+  
+    return phonePattern.test(phoneNumber);
+  }
+  
+
   const validate = () => {
     switch (validationType) {
       case "phone":
-        return value.length === 10;
+        return formatPhoneNumber(value);
       case "email":
         return value.includes("@");
       default:
@@ -50,7 +58,7 @@ function TextField({
           {" "}
           <img src={errorIcon} alt="Error icon" />
           {validationType === "phone"
-            ? "Phone number must be 10 digits"
+            ? "Please enter a valid phone number"
             : validationType === "email"
             ? "Please enter a valid email"
             : `${label} is required`}

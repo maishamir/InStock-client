@@ -8,12 +8,11 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import WarehouseInventoryList from "../../components/WarehouseInventoryList/WarehouseInventoryList";
 
 function WarehouseDetails() {
-
   const { warehouseId } = useParams();
+
   const [warehouse, setWarehouse] = useState(null);
 
   const [inventoryList, setInventoryList] = useState([]);
-
 
   const fetchWarehouseDetails = async () => {
     try {
@@ -30,22 +29,23 @@ function WarehouseDetails() {
     fetchWarehouseDetails();
   }, [warehouseId]);
 
-  
   const fetchWarehouseInventory = async () => {
     try {
-      const { data } = await axios.get(`${api_URL}/api/inventories`);
-
-      setInventoryList(data);
+      const data = await axios.get(
+        `${api_URL}/api/warehouses/${warehouseId}/inventories`
+      );
+      console.log(data.data);
+      setInventoryList(Array.isArray(data.data) ? data.data : []);
     } catch (e) {
       console.error("Could not fetch list of inventories: ", e);
     }
   };
 
   useEffect(() => {
-    fetchWarehouseInventory();
-  }, []);
-
-  
+    if (warehouseId) {
+      fetchWarehouseInventory();
+    }
+  }, [warehouseId]);
 
   if (!warehouse) {
     return <p>Getting warehouse information</p>;
@@ -99,15 +99,13 @@ function WarehouseDetails() {
             </div>
           </div>
         </article>
-          
-       <WarehouseInventoryList
-        inventoryList={inventoryList}
-        fetchWarehouseInventory={fetchWarehouseInventory}
-        warehouse = {warehouse}
-      /> 
-      </section>
 
-    
+        <WarehouseInventoryList
+          inventoryList={inventoryList}
+          fetchWarehouseInventory={fetchWarehouseInventory}
+          warehouse={warehouse}
+        />
+      </section>
     </PageContainer>
   );
 }

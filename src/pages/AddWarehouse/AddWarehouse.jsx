@@ -63,7 +63,7 @@ function AddWarehouse() {
       country: !country,
       contact_name: !contact_name,
       contact_position: !contact_position,
-      contact_phone: contact_phone.length !== 10,
+      contact_phone: !contact_phone ,
       contact_email: !contact_email.includes("@"),
     };
 
@@ -105,6 +105,7 @@ function AddWarehouse() {
   };
 
   return (
+
     <PageContainer>
       <section className="add-warehouse">
         <div>
