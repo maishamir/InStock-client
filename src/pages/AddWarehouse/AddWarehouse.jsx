@@ -85,7 +85,6 @@ function AddWarehouse() {
         "http://localhost:8080/api/warehouses",
         values
       );
-      console.log("New warehouse created:", response.data);
       setSuccess(true);
       alert("Form submitted successfully!");
       formRef.current.reset();
