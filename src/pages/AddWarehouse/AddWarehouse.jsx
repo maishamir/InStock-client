@@ -189,7 +189,7 @@ function AddWarehouse() {
             <TextField
               label="Phone Number"
               name="contact_phone"
-              placeholder="Phone Number"
+              placeholder="+1 (123) 456-7890"
               value={values.contact_phone}
               onChange={handleInputChange}
               required={true}
@@ -200,7 +200,7 @@ function AddWarehouse() {
             <TextField
               label="Email"
               name="contact_email"
-              placeholder="Email"
+              placeholder="xxxxx@gmail.com"
               value={values.contact_email}
               onChange={handleInputChange}
               required={true}

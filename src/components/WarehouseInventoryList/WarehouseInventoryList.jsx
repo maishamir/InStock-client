@@ -31,7 +31,8 @@ function WarehouseInventoryList({inventoryList, warehouse, fetchWarehouseInvento
           </h4>
         </div>
         {inventoryList.map((inventory) => {
-          return (
+         
+          return  (
             <WarehouseInventoryCard
               key={inventory.id}
               inventory={inventory}

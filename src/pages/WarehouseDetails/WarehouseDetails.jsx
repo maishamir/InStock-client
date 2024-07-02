@@ -10,6 +10,7 @@ import WarehouseInventoryList from "../../components/WarehouseInventoryList/Ware
 function WarehouseDetails() {
 
   const { warehouseId } = useParams();
+ 
   const [warehouse, setWarehouse] = useState(null);
 
   const [inventoryList, setInventoryList] = useState([]);
@@ -33,17 +34,19 @@ function WarehouseDetails() {
   
   const fetchWarehouseInventory = async () => {
     try {
-      const { data } = await axios.get(`${api_URL}/api/inventories`);
-
-      setInventoryList(data);
+      const  {data}  = await axios.get(`${api_URL}/api/inventories/${warehouseId}`);
+      console.log(data)
+      setInventoryList(Array.isArray(data) ? data : []);
     } catch (e) {
       console.error("Could not fetch list of inventories: ", e);
     }
   };
 
   useEffect(() => {
-    fetchWarehouseInventory();
-  }, []);
+    if (warehouseId) {
+      fetchWarehouseInventory();
+    }
+  }, [warehouseId]);
 
   
 
@@ -62,6 +65,20 @@ function WarehouseDetails() {
     contact_phone,
     contact_email,
   } = warehouse;
+
+  
+
+  // console.log("warehouseId:", warehouseId);
+  // console.log("inventoryList:", inventoryList);
+
+  // const filteredList = Array.isArray(inventoryList)
+  //   ? inventoryList.filter(inventoryItem => {
+  //       console.log("Comparing:", inventoryItem.warehouseId, "with", warehouseId);
+  //       return inventoryItem.warehouseId === warehouseId;
+  //     })
+  //   : [];
+
+  // console.log(filteredList)
 
   return (
     <PageContainer>
