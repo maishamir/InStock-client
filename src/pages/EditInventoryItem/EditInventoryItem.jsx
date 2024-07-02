@@ -120,7 +120,7 @@ const EditItemForm = ({ onUpdateItem }) => {
       const updatedFormData = { ...prevFormData, [name]: value };
 
       if (name === "status" && value === "Out of Stock") {
-        updatedFormData.quantity = "";
+        updatedFormData.quantity = "0";
       }
 
       if (errors[name]) {
