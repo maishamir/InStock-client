@@ -5,6 +5,7 @@ import PageContainer from "../../components/PageContainer/PageContainer";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { api_URL } from "../../utils/const";
 import { useNavigate } from "react-router-dom";
+import errorIcon from "../../assets/images/icons/error-24px.svg";
 
 const AddNewItemForm = ({ onAddItem }) => {
   const [formData, setFormData] = useState({
@@ -75,6 +76,11 @@ const AddNewItemForm = ({ onAddItem }) => {
       return;
     }
 
+    const confirmSubmit = window.confirm("Add new item?");
+    if (confirmSubmit) {
+      navigate(`/inventory`);
+    }
+
     try {
       const response = await axios.post(`${api_URL}/api/inventories`, formData);
       onAddItem(response.data);
@@ -88,11 +94,6 @@ const AddNewItemForm = ({ onAddItem }) => {
       });
     } catch (error) {
       console.error("Failed to add inventory item.", error);
-    }
-
-    const confirmSubmit = window.confirm("Add new item?");
-    if (confirmSubmit) {
-      navigate(`/inventory`);
     }
   };
 
@@ -111,7 +112,7 @@ const AddNewItemForm = ({ onAddItem }) => {
       const updatedFormData = { ...prevFormData, [name]: value };
 
       if (name === "status" && value === "Out of Stock") {
-        updatedFormData.quantity = "";
+        updatedFormData.quantity = "0";
       }
 
       if (errors[name]) {
@@ -154,6 +155,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                 />
                 {errors.item_name && (
                   <span className="add-item-form__error-message">
+                    <img src={errorIcon} alt="error-icon"/>
                     {errors.item_name}
                   </span>
                 )}
@@ -173,6 +175,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                 />
                 {errors.description && (
                   <span className="add-item-form__error-message">
+                    <img src={errorIcon} alt="error-icon"/>
                     {errors.description}
                   </span>
                 )}
@@ -204,6 +207,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                 </select>
                 {errors.category && (
                   <span className="add-item-form__error-message">
+                    <img src={errorIcon} alt="error-icon"/>
                     {errors.category}
                   </span>
                 )}
@@ -261,6 +265,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                 </div>
                 {errors.status && (
                   <span className="add-item-form__error-message">
+                    <img src={errorIcon} alt="error-icon"/>
                     {errors.status}
                   </span>
                 )}
@@ -282,7 +287,8 @@ const AddNewItemForm = ({ onAddItem }) => {
                   />
                   {errors.quantity && (
                     <span className="add-item-form__error-message">
-                      {errors.quantity}
+                        <img src={errorIcon} alt="error-icon"/>
+                        {errors.quantity}
                     </span>
                   )}
                 </div>
@@ -314,6 +320,7 @@ const AddNewItemForm = ({ onAddItem }) => {
                 </select>
                 {errors.warehouse_id && (
                   <span className="add-item-form__error-message">
+                    <img src={errorIcon} alt="error-icon"/>
                     {errors.warehouse_id}
                   </span>
                 )}
